@@ -7,7 +7,7 @@
 <meta name="description" content="A global online IGCSE homeschool for Muslim families. Academics, character, and real-world readiness — taught as one thing." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Philosopher:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --navy:       #071b3a;
@@ -16,23 +16,25 @@
     --gold:       #dfbd63;
     --gold-deep:  #b88a2a;
     --gold-soft:  #fff7e7;
+    --gold-line:  rgba(223,189,99,0.45);
     --ink:        #0f1d33;
     --muted:      #526275;
     --muted-soft: #6c7890;
     --line:       rgba(7,27,58,.12);
     --line-soft:  rgba(7,27,58,.06);
     --paper:      #ffffff;
-    --bg:         #fbfdff;
+    --bg:         #fbfaf5;
+    --cream:      #f5efe0;
     --blue-tint:  #eef5ff;
     --green-tint: #eef8ef;
     --red-tint:   #fff0ef;
-    --gold-tint:  #fff7e7;
     --acc-blue:   #4f86d9;
     --acc-green:  #55a860;
     --acc-red:    #e55c55;
     --shadow-sm:  0 10px 24px rgba(7,27,58,.06);
-    --shadow-md:  0 14px 36px rgba(7,27,58,.08);
-    --shadow-lg:  0 24px 70px rgba(7,27,58,.12);
+    --shadow-md:  0 18px 44px rgba(7,27,58,.10);
+    --shadow-lg:  0 28px 80px rgba(7,27,58,.14);
+    --shadow-card:0 22px 50px rgba(7,27,58,.16);
   }
 
   * { box-sizing: border-box; }
@@ -47,8 +49,9 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-  .wrap-narrow { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px) { .wrap, .wrap-narrow { padding: 0 22px; } }
 
   h1, h2, h3, h4 {
     font-family: 'Philosopher', Georgia, serif;
@@ -58,56 +61,75 @@
     margin: 0 0 0.5em;
     color: var(--navy);
   }
-  h1 { font-size: clamp(2.6rem, 6.2vw, 5rem); letter-spacing: -0.035em; }
-  h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
-  h3 { font-size: 1.5rem; line-height: 1.15; }
-  h4 { font-size: 1.15rem; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.8rem, 6.8vw, 5.6rem); letter-spacing: -0.04em; }
+  h2 { font-size: clamp(2.1rem, 4.2vw, 3.4rem); }
+  h3 { font-size: 1.55rem; line-height: 1.15; }
+  h4 { font-size: 1.18rem; letter-spacing: -0.01em; }
   p { margin: 0 0 1.1em; color: var(--muted); }
   em { font-style: italic; }
   a { color: var(--navy); }
 
-  /* KICKER (their signature element) */
+  /* KICKER */
   .kicker {
     color: var(--gold-deep);
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin: 0 0 14px;
-    display: inline-block;
+    margin: 0 0 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker::before {
+    content: ""; width: 24px; height: 1px; background: var(--gold);
   }
   .kicker.on-dark { color: var(--gold); }
+  .kicker.on-dark::before { background: var(--gold); }
 
-  /* Headline underline accent (their pattern) */
+  /* Section heading underline */
   .accent-bar {
     display: block;
-    width: 66px;
-    height: 3px;
+    width: 72px; height: 3px;
     border-radius: 999px;
-    margin: 14px 0 22px;
+    margin: 18px 0 22px;
     background: linear-gradient(90deg, var(--gold), rgba(223,189,99,0));
   }
   .accent-bar.center { margin-left: auto; margin-right: auto; }
 
+  /* Ornamental divider (gold flourish between sections) */
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px;
+    padding: 20px 0;
+    color: var(--gold-deep);
+  }
+  .ornament::before, .ornament::after {
+    content: "";
+    height: 1px; width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+  }
+  .ornament svg { width: 24px; height: 24px; }
+
   /* NAV */
   nav.top {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(251,250,245,0.92);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line-soft);
   }
   nav.top .wrap {
     display: flex; align-items: center; justify-content: space-between;
-    height: 76px;
+    height: 78px;
   }
   .brand {
     display: flex; align-items: center; gap: 12px;
     text-decoration: none;
   }
   .brand-mark {
-    width: 40px; height: 40px;
+    width: 42px; height: 42px;
     background: var(--navy);
-    border-radius: 10px;
+    border-radius: 11px;
     display: grid; place-items: center;
     padding: 6px;
     box-shadow: var(--shadow-sm);
@@ -115,18 +137,19 @@
   .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
   .brand-text {
     font-family: 'Philosopher', serif;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--navy);
     letter-spacing: -0.02em;
   }
   .brand-text span { color: var(--gold-deep); }
-  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
   .nav-links a:not(.btn) {
     color: var(--muted);
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 600;
+    position: relative;
   }
   .nav-links a:not(.btn):hover { color: var(--navy); }
   @media (max-width: 820px) {
@@ -136,22 +159,23 @@
   /* BUTTONS */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 14px 24px;
+    padding: 15px 26px;
     border-radius: 999px;
     font-weight: 800;
     font-size: 0.94rem;
     text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
     border: 1px solid transparent;
     cursor: pointer;
     white-space: nowrap;
+    gap: 8px;
   }
   .btn-gold {
-    background: var(--gold);
+    background: linear-gradient(180deg, #ecca78, var(--gold));
     color: var(--navy);
-    box-shadow: 0 10px 24px rgba(223,189,99,0.32);
+    box-shadow: 0 14px 30px rgba(223,189,99,0.38), inset 0 1px 0 rgba(255,255,255,0.4);
   }
-  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(223,189,99,0.42); }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(223,189,99,0.48); }
   .btn-navy {
     background: var(--navy);
     color: #fff;
@@ -166,50 +190,79 @@
   .btn-ghost:hover { background: var(--navy); color: #fff; }
   .btn-ghost.on-dark { color: #fff; border-color: rgba(255,255,255,0.4); }
   .btn-ghost.on-dark:hover { background: #fff; color: var(--navy); }
-  .btn-sm { padding: 10px 18px; font-size: 0.86rem; }
+  .btn-sm { padding: 11px 20px; font-size: 0.86rem; }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
 
-  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
   /* HERO */
   .hero {
     position: relative;
     background:
-      radial-gradient(circle at 88% 22%, rgba(223,189,99,0.22), transparent 38%),
-      radial-gradient(circle at 12% 88%, rgba(79,134,217,0.18), transparent 40%),
-      linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      radial-gradient(circle at 92% 18%, rgba(223,189,99,0.28), transparent 38%),
+      radial-gradient(circle at 8% 92%, rgba(79,134,217,0.20), transparent 42%),
+      linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--navy-deep) 100%);
     color: #fff;
     overflow: hidden;
-    padding: 110px 0 120px;
+    padding: 90px 0 110px;
+  }
+  /* Islamic geometric pattern overlay */
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23dfbd63' stroke-width='0.6' opacity='0.18'><path d='M60 10 L70 35 L95 30 L78 50 L98 70 L73 70 L70 95 L60 75 L50 95 L47 70 L22 70 L42 50 L25 30 L50 35 Z'/><circle cx='60' cy='60' r='3'/></g></svg>");
+    background-size: 120px 120px;
+    opacity: 0.55;
+    pointer-events: none;
   }
   .hero::after {
     content: "";
-    position: absolute; left: 0; right: 0; bottom: -1px; height: 80px;
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 100px;
     background: linear-gradient(180deg, transparent, var(--bg));
     pointer-events: none;
+    z-index: 3;
   }
-  .hero .wrap { position: relative; z-index: 2; }
+  .hero .wrap {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 980px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 50px; }
+    .hero { padding: 70px 0 90px; }
+  }
   .hero h1 {
     color: #fff;
-    max-width: 16ch;
     margin-bottom: 0.5em;
   }
   .hero h1 em {
     font-style: italic;
     color: var(--gold);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: ""; position: absolute;
+    left: 0; right: 0; bottom: -2px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.5;
   }
   .hero .lede {
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     line-height: 1.6;
     color: rgba(255,255,255,0.88);
     max-width: 60ch;
     margin-bottom: 2em;
   }
+  .hero .lede em { color: var(--gold); font-style: italic; }
   .hero .badges {
     display: flex; flex-wrap: wrap; gap: 10px;
-    margin-bottom: 2.4em;
+    margin-bottom: 2.2em;
   }
   .hero .badge {
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; gap: 9px;
     padding: 8px 14px;
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.18);
@@ -218,6 +271,7 @@
     font-weight: 700;
     color: rgba(255,255,255,0.92);
     letter-spacing: 0.02em;
+    backdrop-filter: blur(8px);
   }
   .hero .badge strong {
     display: grid; place-items: center;
@@ -231,157 +285,486 @@
   }
   .hero-meta {
     margin-top: 2.4em;
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.04em;
-    display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center;
   }
   .hero-meta i { color: var(--gold); font-style: normal; }
 
-  /* TENSION (editorial pull-quote style) */
+  /* HERO VISUAL — layered cards */
+  .hero-visual {
+    position: relative;
+    height: 540px;
+  }
+  @media (max-width: 980px) {
+    .hero-visual { height: 460px; max-width: 480px; margin: 0 auto; }
+  }
+  .h-card {
+    position: absolute;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  /* Schedule card (back) */
+  .h-card.schedule {
+    top: 0; right: 0;
+    width: 320px;
+    transform: rotate(2deg);
+    z-index: 1;
+  }
+  .h-card.schedule .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .h-card.schedule .day {
+    font-family: 'Philosopher', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .h-card.schedule .yr {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-deep);
+    background: var(--gold-soft);
+    padding: 4px 9px; border-radius: 999px;
+  }
+  .h-card.schedule .row {
+    display: grid; grid-template-columns: 60px 1fr; gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+  }
+  .h-card.schedule .time {
+    font-size: 0.74rem; font-weight: 800; color: var(--muted-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .h-card.schedule .subj {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.86rem; font-weight: 700; color: var(--navy);
+  }
+  .h-card.schedule .subj .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .h-card.schedule .subj .dot.q { background: var(--gold); }
+  .h-card.schedule .subj .dot.m { background: var(--acc-blue); }
+  .h-card.schedule .subj .dot.a { background: var(--acc-green); }
+  .h-card.schedule .subj .dot.c { background: var(--acc-red); }
+
+  /* Quote card (middle, prominent) */
+  .h-card.quote {
+    bottom: 80px; left: 0;
+    width: 340px;
+    transform: rotate(-3deg);
+    z-index: 3;
+    background: linear-gradient(180deg, #fff, var(--gold-soft));
+  }
+  .h-card.quote .q-mark {
+    font-family: 'Philosopher', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 0.6;
+    margin-bottom: 4px;
+  }
+  .h-card.quote p {
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.45;
+    color: var(--navy);
+    margin: 0 0 14px;
+  }
+  .h-card.quote .who {
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  .h-card.quote .avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    display: grid; place-items: center;
+    color: var(--navy); font-weight: 800; font-size: 0.78rem;
+    font-family: 'Philosopher', serif;
+  }
+  .h-card.quote .name { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
+  .h-card.quote .loc { font-size: 0.72rem; color: var(--muted); }
+
+  /* Stat pill (foreground) */
+  .h-card.stat {
+    bottom: 0; right: 30px;
+    width: 200px;
+    z-index: 2;
+    text-align: center;
+    padding: 18px 16px;
+  }
+  .h-card.stat .num {
+    font-family: 'Philosopher', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .h-card.stat .num span { color: var(--gold-deep); }
+  .h-card.stat .lbl {
+    font-size: 0.74rem; font-weight: 700; color: var(--muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 8px; display: block;
+  }
+  /* Decorative star behind cards */
+  .hero-visual::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 320px; height: 320px;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23dfbd63' stroke-width='0.5' opacity='0.7'><g><circle cx='100' cy='100' r='80'/><circle cx='100' cy='100' r='60'/><path d='M100 20 L115 75 L170 70 L132 105 L155 160 L100 130 L45 160 L68 105 L30 70 L85 75 Z'/></g></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  /* TRUST STRIP */
+  .trust {
+    background: var(--navy);
+    color: #fff;
+    padding: 26px 0;
+    margin-top: -1px;
+    position: relative;
+    z-index: 4;
+  }
+  .trust .wrap {
+    display: flex; flex-wrap: wrap; gap: 16px 28px;
+    align-items: center; justify-content: space-between;
+  }
+  .trust .item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.86rem; font-weight: 700;
+    color: rgba(255,255,255,0.85);
+  }
+  .trust .item svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+  .trust .divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+  @media (max-width: 820px) { .trust .divider { display: none; } }
+
+  /* TENSION (with drop cap) */
   .tension {
-    padding: 110px 0;
+    padding: 120px 0;
     background: var(--bg);
     text-align: center;
+    position: relative;
+  }
+  .tension .drop {
+    font-family: 'Philosopher', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 0.8;
+    float: left;
+    margin: 6px 14px 0 0;
+    letter-spacing: -0.04em;
   }
   .tension p {
     font-family: 'Philosopher', serif;
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    line-height: 1.32;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    line-height: 1.35;
     color: var(--navy);
-    max-width: 32ch;
+    max-width: 34ch;
     margin: 0 auto 0.9em;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .tension p.dim { color: var(--muted); }
+  .tension p em { color: var(--gold-deep); }
 
   /* SECTION BASE */
-  section.block { padding: 110px 0; }
-  section.block.alt { background: #fff; }
+  section.block { padding: 130px 0; position: relative; }
+  section.block.alt { background: var(--paper); }
   section.block.dark {
     background:
-      radial-gradient(circle at 90% 18%, rgba(223,189,99,0.15), transparent 35%),
+      radial-gradient(circle at 90% 18%, rgba(223,189,99,0.16), transparent 35%),
+      radial-gradient(circle at 10% 82%, rgba(79,134,217,0.10), transparent 38%),
       linear-gradient(135deg, var(--navy), var(--navy-2));
     color: rgba(255,255,255,0.9);
-    position: relative;
     overflow: hidden;
   }
+  section.block.dark::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23dfbd63' stroke-width='0.4' opacity='0.14'><path d='M40 5 L48 25 L68 22 L54 38 L70 55 L50 53 L48 73 L40 58 L32 73 L30 53 L10 55 L26 38 L12 22 L32 25 Z'/></g></svg>");
+    pointer-events: none;
+  }
+  section.block.dark .wrap { position: relative; z-index: 2; }
   section.block.dark h2, section.block.dark h3, section.block.dark h4 { color: #fff; }
   section.block.dark p { color: rgba(255,255,255,0.78); }
-  .section-head { max-width: 720px; margin-bottom: 56px; }
+  .section-head { max-width: 720px; margin-bottom: 64px; }
   .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-  .section-head p { font-size: 1.15rem; line-height: 1.65; color: var(--muted); }
+  .section-head p { font-size: 1.12rem; line-height: 1.65; color: var(--muted); }
+  section.block.dark .section-head p { color: rgba(255,255,255,0.78); }
 
-  /* PILLARS */
+  /* STATS STRIP */
+  .stats {
+    padding: 70px 0;
+    background: linear-gradient(180deg, var(--bg), var(--cream));
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .stats .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  @media (max-width: 820px) { .stats .grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; } }
+  .stat-item { text-align: center; position: relative; }
+  .stat-item:not(:last-child)::after {
+    content: ""; position: absolute;
+    top: 18%; right: -15px; height: 64%; width: 1px;
+    background: var(--gold-line);
+  }
+  @media (max-width: 820px) {
+    .stat-item:nth-child(2)::after { display: none; }
+  }
+  @media (max-width: 540px) { .stat-item::after { display: none !important; } }
+  .stat-item .num {
+    font-family: 'Philosopher', serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+  .stat-item .num em { color: var(--gold-deep); font-style: normal; }
+  .stat-item .lbl {
+    font-size: 0.82rem; font-weight: 700; color: var(--muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* MODEL PILLARS */
   .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 26px;
   }
   @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
   .pillar {
-    padding: 36px;
+    padding: 40px 36px;
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 24px;
+    border-radius: 26px;
     box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .pillar::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    border-radius: 26px 26px 0 0;
+  }
+  .pillar.p1::before { background: linear-gradient(90deg, var(--acc-blue), transparent); }
+  .pillar.p2::before { background: linear-gradient(90deg, var(--acc-red), transparent); }
+  .pillar.p3::before { background: linear-gradient(90deg, var(--acc-green), transparent); }
+  .pillar:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
   .pillar .icon {
-    width: 56px; height: 56px;
-    border-radius: 16px;
+    width: 64px; height: 64px;
+    border-radius: 18px;
     display: grid; place-items: center;
-    margin-bottom: 22px;
-    font-family: 'Philosopher', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    margin-bottom: 26px;
   }
+  .pillar .icon svg { width: 30px; height: 30px; }
   .pillar.p1 .icon { background: var(--blue-tint); color: var(--acc-blue); }
   .pillar.p2 .icon { background: var(--red-tint); color: var(--acc-red); }
   .pillar.p3 .icon { background: var(--green-tint); color: var(--acc-green); }
-  .pillar h3 { margin-bottom: 0.5em; }
-  .pillar p { font-size: 0.98rem; margin-bottom: 1em; }
+  .pillar .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 900; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted-soft);
+    margin-bottom: 10px;
+  }
+  .pillar h3 { margin-bottom: 0.6em; }
+  .pillar p { font-size: 0.98rem; margin-bottom: 1.2em; }
   .pillar ul {
     list-style: none; padding: 0; margin: 0;
     border-top: 1px solid var(--line-soft);
-    padding-top: 18px;
+    padding-top: 20px;
   }
   .pillar li {
-    font-size: 0.88rem;
-    color: var(--muted);
-    padding: 6px 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    padding: 7px 0;
     display: flex; gap: 10px; align-items: baseline;
+    font-weight: 500;
   }
   .pillar li::before {
-    content: "—"; color: var(--gold); font-weight: 700; flex-shrink: 0;
+    content: ""; flex-shrink: 0;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold); margin-top: 8px;
   }
 
-  /* PATHWAY (visual ladder) */
-  .ladder {
+  /* PATHWAY — journey style */
+  .journey {
+    margin-top: 30px;
+    position: relative;
+  }
+  .journey::before {
+    content: "";
+    position: absolute;
+    top: 38px; left: 6%; right: 6%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--gold-line) 0, var(--gold-line) 6px, transparent 6px, transparent 12px);
+    z-index: 0;
+  }
+  @media (max-width: 1000px) { .journey::before { display: none; } }
+  .journey-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin-top: 50px;
+    gap: 18px;
+    position: relative;
+    z-index: 1;
   }
-  @media (max-width: 1000px) { .ladder { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .ladder { grid-template-columns: 1fr; } }
-  .rung {
+  @media (max-width: 1000px) { .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+  @media (max-width: 600px) { .journey-grid { grid-template-columns: 1fr; } }
+  .stop {
+    text-align: center;
+  }
+  .stop .node {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: grid; place-items: center;
+    background: var(--paper);
+    border: 2px solid var(--gold);
+    color: var(--navy);
+    font-family: 'Philosopher', serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(223,189,99,0.25);
+    position: relative;
+  }
+  .stop .node strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-deep);
+    display: block;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stop .card {
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 22px;
-    padding: 26px 22px;
-    position: relative;
+    border-radius: 20px;
+    padding: 22px 20px;
     box-shadow: var(--shadow-sm);
+    text-align: left;
+    min-height: 200px;
     display: flex; flex-direction: column;
-    min-height: 230px;
   }
-  .rung .year-tag {
-    display: inline-flex;
-    padding: 6px 12px;
-    background: var(--gold-tint);
-    color: var(--gold-deep);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-radius: 999px;
-    margin-bottom: 16px;
-    align-self: flex-start;
-  }
-  .rung h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5em;
+  .stop h3 {
+    font-size: 1.15rem; margin-bottom: 0.5em;
     color: var(--navy);
   }
-  .rung p {
-    font-size: 0.9rem;
-    margin: 0 0 18px;
-    color: var(--muted);
+  .stop .card p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0 0 16px;
     flex: 1;
   }
-  .rung .output {
-    font-size: 0.84rem;
-    color: var(--navy);
-    font-weight: 700;
+  .stop .out {
+    font-size: 0.78rem;
+    color: var(--gold-deep);
+    font-weight: 800;
     padding-top: 14px;
-    border-top: 1px dashed var(--line);
+    border-top: 1px dashed var(--gold-line);
+    letter-spacing: 0.02em;
   }
-  .rung .output::before { content: "→ "; color: var(--gold-deep); }
+  .stop .out::before { content: "→ "; }
 
-  .ladder-foot {
-    margin-top: 36px;
-    padding: 22px 28px;
-    background: linear-gradient(135deg, #fff, var(--gold-tint));
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    font-size: 1rem;
-    color: var(--navy);
-    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  .journey-foot {
+    margin-top: 56px;
+    padding: 28px 32px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 22px;
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
   }
-  .ladder-foot strong { font-family: 'Philosopher', serif; font-size: 1.05rem; }
+  .journey-foot::before {
+    content: "";
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(223,189,99,0.25), transparent 70%);
+  }
+  .journey-foot .txt { position: relative; z-index: 2; max-width: 60ch; }
+  .journey-foot strong {
+    font-family: 'Philosopher', serif;
+    font-size: 1.3rem; font-weight: 700;
+    display: block; margin-bottom: 4px;
+    color: var(--gold);
+  }
+  .journey-foot .txt p {
+    margin: 0; color: rgba(255,255,255,0.82); font-size: 0.96rem;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    padding: 130px 0;
+    background:
+      radial-gradient(circle at 12% 30%, rgba(223,189,99,0.10), transparent 40%),
+      var(--cream);
+    text-align: center;
+  }
+  .testimonial .qmark {
+    font-family: 'Philosopher', serif;
+    font-size: 6rem;
+    color: var(--gold);
+    line-height: 0.5;
+    margin-bottom: 20px;
+    opacity: 0.65;
+  }
+  .testimonial blockquote {
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    line-height: 1.4;
+    color: var(--navy);
+    max-width: 32ch;
+    margin: 0 auto 36px;
+    letter-spacing: -0.015em;
+  }
+  .testimonial blockquote em {
+    font-style: normal;
+    color: var(--gold-deep);
+  }
+  .testimonial .author {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+  }
+  .testimonial .author .av {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    display: grid; place-items: center;
+    color: var(--navy); font-weight: 800;
+    font-family: 'Philosopher', serif;
+    font-size: 0.95rem;
+  }
+  .testimonial .author .meta { text-align: left; }
+  .testimonial .author .nm { font-size: 0.88rem; font-weight: 800; color: var(--navy); }
+  .testimonial .author .lo { font-size: 0.76rem; color: var(--muted); }
 
   /* WHO */
   .who-grid {
@@ -391,41 +774,91 @@
   }
   @media (max-width: 820px) { .who-grid { grid-template-columns: 1fr; } }
   .who-col {
-    padding: 36px;
-    border-radius: 24px;
+    padding: 40px 36px;
+    border-radius: 26px;
     background: #fff;
     border: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
   }
-  .who-col.for { background: linear-gradient(180deg, #fff, var(--green-tint)); }
-  .who-col.not { background: linear-gradient(180deg, #fff, #f6f8fb); }
+  .who-col.for { background: linear-gradient(180deg, #fff 30%, var(--green-tint)); }
+  .who-col.not { background: linear-gradient(180deg, #fff 30%, #f4f7fb); }
   .who-col h3 {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 1.2em;
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 1.4em;
+    font-size: 1.4rem;
   }
   .who-col h3 .check {
-    width: 32px; height: 32px;
+    width: 36px; height: 36px;
     border-radius: 50%;
     display: grid; place-items: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 900;
+    flex-shrink: 0;
   }
   .who-col.for h3 .check { background: var(--acc-green); color: #fff; }
   .who-col.not h3 .check { background: #cfd6e0; color: #fff; }
   .who-col ul { list-style: none; padding: 0; margin: 0; }
   .who-col li {
-    padding: 14px 0;
+    padding: 16px 0;
     color: var(--ink);
     font-size: 0.98rem;
     border-bottom: 1px solid var(--line-soft);
-    display: flex; gap: 12px; align-items: baseline;
+    display: flex; gap: 14px; align-items: baseline;
   }
   .who-col li:last-child { border-bottom: none; }
   .who-col.for li::before {
-    content: "✓"; color: var(--acc-green); font-weight: 900; flex-shrink: 0;
+    content: "✓"; color: var(--acc-green); font-weight: 900; flex-shrink: 0; font-size: 0.92rem;
   }
   .who-col.not li::before {
-    content: "✕"; color: var(--muted-soft); font-weight: 900; flex-shrink: 0;
+    content: "✕"; color: var(--muted-soft); font-weight: 900; flex-shrink: 0; font-size: 0.92rem;
+  }
+
+  /* HEAD OF SCHOOL */
+  .head-note {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 820px) { .head-note { grid-template-columns: 1fr; gap: 40px; text-align: center; } }
+  .head-portrait {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 50%),
+      linear-gradient(135deg, var(--navy), var(--navy-2));
+    position: relative;
+    box-shadow: var(--shadow-card);
+    border: 6px solid #fff;
+    overflow: hidden;
+  }
+  .head-portrait::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23dfbd63' stroke-width='0.8' opacity='0.5'><g><path d='M100 30 L115 80 L165 78 L128 110 L148 158 L100 132 L52 158 L72 110 L35 78 L85 80 Z'/></g></svg>");
+    background-size: cover;
+  }
+  @media (max-width: 820px) { .head-portrait { max-width: 220px; margin: 0 auto; } }
+  .head-note .body p { font-size: 1.05rem; line-height: 1.7; color: var(--ink); }
+  .head-note .sig {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  }
+  .head-note .sig-name {
+    font-family: 'Philosopher', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-style: italic;
+  }
+  .head-note .sig-role {
+    font-size: 0.84rem; color: var(--muted);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    font-weight: 700;
   }
 
   /* DIFFERENCE */
@@ -437,77 +870,76 @@
   @media (max-width: 980px) { .diff-grid { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 640px) { .diff-grid { grid-template-columns: 1fr; } }
   .diff-card {
-    padding: 28px;
+    padding: 32px 28px;
     border-radius: 22px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     transition: transform 0.2s ease, background 0.2s ease;
+    backdrop-filter: blur(6px);
   }
-  .diff-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.07); }
+  .diff-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.08); border-color: var(--gold-line); }
   .diff-card .dot {
-    width: 36px; height: 36px;
-    border-radius: 50%;
+    width: 44px; height: 44px;
+    border-radius: 13px;
     display: grid; place-items: center;
     background: rgba(223,189,99,0.16);
     color: var(--gold);
-    font-family: 'Philosopher', serif;
-    font-weight: 700;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
+  .diff-card .dot svg { width: 22px; height: 22px; }
   .diff-card h4 { color: #fff; margin-bottom: 0.4em; font-size: 1.1rem; }
-  .diff-card p { margin: 0; font-size: 0.93rem; color: rgba(255,255,255,0.7); }
+  .diff-card p { margin: 0; font-size: 0.93rem; color: rgba(255,255,255,0.72); }
 
-  /* WEEK timeline */
+  /* WEEK */
   .week-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 50px;
+    gap: 20px;
   }
   @media (max-width: 900px) { .week-grid { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 540px) { .week-grid { grid-template-columns: 1fr; } }
   .slot {
-    padding: 28px 24px;
+    padding: 32px 26px;
     border-radius: 22px;
     background: #fff;
     border: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
     position: relative;
+    transition: transform 0.2s ease;
   }
-  .slot::before {
-    content: "";
-    display: block;
-    width: 42px; height: 4px;
-    border-radius: 999px;
+  .slot:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .slot .ico {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: grid; place-items: center;
     margin-bottom: 18px;
   }
-  .slot.morning::before   { background: var(--acc-blue); }
-  .slot.afternoon::before { background: var(--acc-green); }
-  .slot.friday::before    { background: var(--gold); }
-  .slot.always::before    { background: var(--acc-red); }
+  .slot .ico svg { width: 22px; height: 22px; }
+  .slot.morning .ico { background: var(--blue-tint); color: var(--acc-blue); }
+  .slot.afternoon .ico { background: var(--green-tint); color: var(--acc-green); }
+  .slot.friday .ico { background: var(--gold-soft); color: var(--gold-deep); }
+  .slot.always .ico { background: var(--red-tint); color: var(--acc-red); }
   .slot .when {
     font-family: 'Philosopher', serif;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     letter-spacing: -0.01em;
   }
   .slot .what { font-size: 0.94rem; color: var(--muted); margin: 0; }
 
   /* OUTCOMES */
   .outcomes {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    margin-top: 40px;
+    margin-top: 50px;
     counter-reset: outc;
+    max-width: 760px;
   }
   .out-row {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 30px;
-    padding: 30px 0;
+    grid-template-columns: 70px 1fr;
+    gap: 28px;
+    padding: 28px 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     align-items: baseline;
   }
@@ -515,35 +947,37 @@
     counter-increment: outc;
     content: "0" counter(outc);
     font-family: 'Philosopher', serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--gold);
-    font-weight: 400;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
   .out-row p {
     margin: 0;
-    font-size: 1.18rem;
-    color: rgba(255,255,255,0.92);
+    font-size: 1.22rem;
+    color: rgba(255,255,255,0.95);
     line-height: 1.45;
     font-family: 'Philosopher', serif;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
+  .out-row p em { color: var(--gold); font-style: italic; }
 
   /* FAQ */
   .faqs { margin-top: 40px; }
   details {
     border: 1px solid var(--line);
     border-radius: 18px;
-    padding: 22px 28px;
+    padding: 24px 30px;
     margin-bottom: 12px;
     background: #fff;
     box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  details[open] { box-shadow: var(--shadow-md); }
+  details[open] { box-shadow: var(--shadow-md); border-color: var(--gold-line); }
   details summary {
     font-family: 'Philosopher', serif;
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     font-weight: 700;
     color: var(--navy);
     cursor: pointer;
@@ -555,7 +989,7 @@
   details summary::-webkit-details-marker { display: none; }
   details summary::after {
     content: "+";
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     color: var(--gold-deep);
     font-weight: 300;
     transition: transform 0.2s ease;
@@ -563,42 +997,48 @@
   }
   details[open] summary::after { content: "−"; }
   details p {
-    margin: 14px 0 0;
+    margin: 16px 0 0;
     color: var(--muted);
     max-width: 64ch;
     font-size: 0.98rem;
+    line-height: 1.65;
   }
 
   /* FINAL CTA */
   .final {
     background:
-      radial-gradient(circle at 50% -10%, rgba(223,189,99,0.25), transparent 50%),
+      radial-gradient(circle at 50% -10%, rgba(223,189,99,0.30), transparent 50%),
       linear-gradient(180deg, var(--navy-2), var(--navy-deep));
     color: #fff;
     text-align: center;
-    padding: 140px 0;
+    padding: 150px 0;
     position: relative;
     overflow: hidden;
   }
   .final::before {
     content: "";
     position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 12% 80%, rgba(79,134,217,0.12), transparent 30%);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><g fill='none' stroke='%23dfbd63' stroke-width='0.5' opacity='0.12'><path d='M50 8 L60 30 L82 28 L66 44 L82 64 L60 62 L60 84 L50 68 L40 84 L40 62 L18 64 L34 44 L18 28 L40 30 Z'/></g></svg>");
+    background-size: 100px 100px;
+  }
+  .final::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 14% 78%, rgba(79,134,217,0.14), transparent 32%);
   }
   .final .wrap-narrow { position: relative; z-index: 2; }
   .final h2 {
     color: #fff;
     max-width: 20ch;
     margin: 0 auto 0.5em;
-    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-size: clamp(2.4rem, 5vw, 4rem);
   }
   .final h2 em { color: var(--gold); font-style: italic; }
   .final p {
-    color: rgba(255,255,255,0.78);
-    font-size: 1.2rem;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.22rem;
     max-width: 52ch;
-    margin: 0 auto 2.4em;
+    margin: 0 auto 2.6em;
   }
   .final .cta-row { justify-content: center; }
 
@@ -606,7 +1046,7 @@
   footer {
     background: var(--navy-deep);
     color: rgba(255,255,255,0.55);
-    padding: 50px 0;
+    padding: 56px 0;
     font-size: 0.88rem;
   }
   footer .wrap {
@@ -615,7 +1055,7 @@
   }
   footer a { color: var(--gold); text-decoration: none; }
   footer a:hover { color: #fff; }
-  footer .brand-text { color: #fff; font-size: 1.2rem; }
+  footer .brand-text { color: #fff; font-size: 1.25rem; }
 
 </style>
 </head>
@@ -643,52 +1083,158 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <div class="kicker on-dark">A Global Online IGCSE Homeschool · Years 7–11</div>
-    <h1>An IGCSE for Muslim children who'll have to <em>lead.</em></h1>
-    <p class="lede">A global online homeschool combining IGCSE rigour with character formation and real-world skill — so your child graduates with the grades, the deen, and the ability to actually <em>do something</em> with both.</p>
+    <div class="hero-text">
+      <div class="kicker on-dark">A Global Online IGCSE Homeschool · Years 7–11</div>
+      <h1>An IGCSE for Muslim children who'll have to <em>lead.</em></h1>
+      <p class="lede">IGCSE rigour, character formation, and real-world skill — so your child graduates with the grades, the deen, and the ability to actually <em>do something</em> with both.</p>
 
-    <div class="badges">
-      <span class="badge"><strong>A</strong>Academics</span>
-      <span class="badge"><strong>B</strong>Business</span>
-      <span class="badge"><strong>C</strong>Character</span>
+      <div class="badges">
+        <span class="badge"><strong>A</strong>Academics</span>
+        <span class="badge"><strong>B</strong>Business</span>
+        <span class="badge"><strong>C</strong>Character</span>
+      </div>
+
+      <div class="cta-row">
+        <a href="#apply" class="btn btn-gold">Apply for September intake <span class="arrow">→</span></a>
+        <a href="#call" class="btn btn-ghost on-dark">Book a 20-min call</a>
+      </div>
+
+      <div class="hero-meta">
+        Years 7–11 <i>·</i> Fully online <i>·</i> 14+ countries <i>·</i> Small cohorts
+      </div>
     </div>
 
-    <div class="cta-row">
-      <a href="#apply" class="btn btn-gold">Apply for September intake</a>
-      <a href="#call" class="btn btn-ghost on-dark">Book a 20-min call</a>
-    </div>
+    <div class="hero-visual">
+      <!-- Back card: schedule -->
+      <div class="h-card schedule">
+        <div class="head">
+          <div class="day">Tuesday</div>
+          <div class="yr">Year 9</div>
+        </div>
+        <div class="row">
+          <div class="time">08:00</div>
+          <div class="subj"><span class="dot q"></span>Quran &amp; Tafsir</div>
+        </div>
+        <div class="row">
+          <div class="time">09:15</div>
+          <div class="subj"><span class="dot m"></span>Mathematics</div>
+        </div>
+        <div class="row">
+          <div class="time">11:00</div>
+          <div class="subj"><span class="dot a"></span>Arabic Conversation</div>
+        </div>
+        <div class="row">
+          <div class="time">14:30</div>
+          <div class="subj"><span class="dot c"></span>Mentor 1-on-1</div>
+        </div>
+      </div>
 
-    <div class="hero-meta">
-      Years 7–11 <i>·</i> Fully online <i>·</i> Families in 14+ countries <i>·</i> Small cohorts
+      <!-- Foreground card: quote -->
+      <div class="h-card quote">
+        <div class="q-mark">"</div>
+        <p>My son runs a small print business with his cousin <em>and</em> just earned his first IGCSE distinction. Stewards does what it says.</p>
+        <div class="who">
+          <div class="avatar">KA</div>
+          <div>
+            <div class="name">Khadijah A.</div>
+            <div class="loc">Parent · Kuala Lumpur</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat card -->
+      <div class="h-card stat">
+        <div class="num"><span>14</span>+</div>
+        <span class="lbl">Countries served</span>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v5c0 5 3.8 9.4 9 11 5.2-1.6 9-6 9-11V7l-9-5z"/></svg>
+      Internationally recognised IGCSE
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+      Students in 14+ countries
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      Small cohorts · 12–16 students
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      Salah anchors the day
+    </div>
+  </div>
+</div>
 
 <!-- TENSION -->
 <section class="tension">
   <div class="wrap-narrow">
     <div class="kicker">The tension</div>
-    <p>Most schools optimise for one thing: <em>exam results.</em></p>
+    <p><span class="drop">M</span>ost schools optimise for one thing: <em>exam results.</em></p>
     <p class="dim">Good grades. Empty graduates. Confident on a test, lost in the world. Disconnected from their deen by the time they reach sixth form.</p>
     <p>You don't want a transcript. You want a Muslim adult — <em>sharp, principled, and useful.</em></p>
     <p class="dim">That's a different brief. It needs a different school.</p>
   </div>
 </section>
 
+<!-- Ornament -->
+<div class="ornament">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3 8h9l-7 5 3 8-8-6-8 6 3-8-7-5h9z" opacity="0.85"/></svg>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat-item">
+        <div class="num"><em>5</em>yr</div>
+        <div class="lbl">IGCSE Pathway</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">14<em>+</em></div>
+        <div class="lbl">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">12<em>—</em>16</div>
+        <div class="lbl">Per Cohort</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">1<em>:</em>1</div>
+        <div class="lbl">Mentor Per Child</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MODEL -->
 <section class="block alt" id="model">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head center">
       <div class="kicker">The model · 365° formation</div>
-      <h2>Three things, taught as one thing.</h2>
-      <span class="accent-bar"></span>
+      <h2>Three things, taught as <em>one thing.</em></h2>
+      <span class="accent-bar center"></span>
       <p>Academics, character, and real-world capability aren't separate tracks. They're the same education, looked at from different angles.</p>
     </div>
 
     <div class="pillars">
       <div class="pillar p1">
-        <div class="icon">A</div>
-        <h3>Academics that travel</h3>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4h7a3 3 0 013 3v13a2 2 0 00-2-2H2zM22 4h-7a3 3 0 00-3 3v13a2 2 0 012-2h8z"/>
+          </svg>
+        </div>
+        <span class="tag">Academics</span>
+        <h3>Grades that travel.</h3>
         <p>Full IGCSE pathway, internationally recognised, university-ready. Specialists, not generalists.</p>
         <ul>
           <li>Maths, English, Sciences</li>
@@ -697,24 +1243,51 @@
         </ul>
       </div>
       <div class="pillar p2">
-        <div class="icon">C</div>
-        <h3>Character that holds</h3>
-        <p>Adab, akhlaq, and inner work — woven into the week, not bolted on for Fridays. Your child as amanah.</p>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </div>
+        <span class="tag">Character</span>
+        <h3>Inner work that holds.</h3>
+        <p>Adab, akhlaq, and tarbiyah — woven into the week, not bolted on for Fridays. Your child as amanah.</p>
         <ul>
           <li>Daily salah anchored</li>
           <li>Mentor across years</li>
-          <li>Quran &amp; tarbiyah built in</li>
+          <li>Quran &amp; tafsir built in</li>
         </ul>
       </div>
       <div class="pillar p3">
-        <div class="icon">B</div>
-        <h3>Real-world readiness</h3>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M10 5h4"/>
+          </svg>
+        </div>
+        <span class="tag">Real-world</span>
+        <h3>Skill you can use.</h3>
         <p>Business fundamentals, communication, projects with actual outputs. They'll ship something before they sit a paper.</p>
         <ul>
           <li>Build a small venture</li>
           <li>Public speaking + writing</li>
           <li>Internship by Year 10</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="wrap-narrow">
+    <div class="qmark">"</div>
+    <blockquote>
+      We left a top private school for Stewards. Two years in, my daughter speaks Arabic at the dinner table, reads with her father every night, and just shipped a Year 9 business project. <em>The grades came too.</em>
+    </blockquote>
+    <div class="author">
+      <div class="av">YR</div>
+      <div class="meta">
+        <div class="nm">Yusuf &amp; Ruqayyah</div>
+        <div class="lo">Parents · Manchester</div>
       </div>
     </div>
   </div>
@@ -730,52 +1303,91 @@
       <p>Each year builds toward an outcome you can point to — not just a report card.</p>
     </div>
 
-    <div class="ladder">
-      <div class="rung">
-        <div class="year-tag">Year 7</div>
-        <h3>Foundations</h3>
-        <p>Study habits, learning rhythm, Arabic basics, first cohort friendships.</p>
-        <div class="output">First independent project</div>
+    <div class="journey">
+      <div class="journey-grid">
+        <div class="stop">
+          <div class="node"><strong>7</strong>Year</div>
+          <div class="card">
+            <h3>Foundations</h3>
+            <p>Study habits, learning rhythm, Arabic basics, first cohort friendships.</p>
+            <div class="out">First independent project</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="node"><strong>8</strong>Year</div>
+          <div class="card">
+            <h3>Depth + voice</h3>
+            <p>Subject depth, Arabic fluency build, presentation skills, mentorship deepens.</p>
+            <div class="out">Public presentation</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="node"><strong>9</strong>Year</div>
+          <div class="card">
+            <h3>IGCSE begins</h3>
+            <p>Coursework starts. Specialisations chosen. First business or community project.</p>
+            <div class="out">Business / community project</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="node"><strong>10</strong>Year</div>
+          <div class="card">
+            <h3>IGCSE core</h3>
+            <p>Exam preparation deepens. Portfolio work. Real-world placement.</p>
+            <div class="out">Internship or portfolio piece</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="node"><strong>11</strong>Year</div>
+          <div class="card">
+            <h3>Finals + launch</h3>
+            <p>IGCSEs sat. Transition planning — A-Levels, university, apprenticeship, or own venture.</p>
+            <div class="out">Graduate with grades + a record</div>
+          </div>
+        </div>
       </div>
-      <div class="rung">
-        <div class="year-tag">Year 8</div>
-        <h3>Depth + voice</h3>
-        <p>Subject depth, Arabic fluency build, presentation skills, mentorship deepens.</p>
-        <div class="output">Public presentation</div>
-      </div>
-      <div class="rung">
-        <div class="year-tag">Year 9</div>
-        <h3>IGCSE begins</h3>
-        <p>Coursework starts. Specialisations chosen. First business or community project.</p>
-        <div class="output">Business or community project</div>
-      </div>
-      <div class="rung">
-        <div class="year-tag">Year 10</div>
-        <h3>IGCSE core</h3>
-        <p>Exam preparation deepens. Portfolio work. Real-world placement.</p>
-        <div class="output">Internship or portfolio piece</div>
-      </div>
-      <div class="rung">
-        <div class="year-tag">Year 11</div>
-        <h3>Finals + launch</h3>
-        <p>IGCSEs sat. Transition planning — A-Levels, university, apprenticeship, or own venture.</p>
-        <div class="output">Graduate with grades + a record</div>
+
+      <div class="journey-foot">
+        <div class="txt">
+          <strong>And after Year 11?</strong>
+          <p>A-Levels, university, apprenticeship, or their own venture. We help them map it — and stay in their corner after they leave.</p>
+        </div>
+        <a href="#call" class="btn btn-gold">Talk to us about the pathway</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="ladder-foot">
-      <strong>Then what?</strong>
-      <span style="color:var(--muted)">A-Levels, university, apprenticeship, or their own venture. We help them map it — and stay in their corner after they leave.</span>
+<!-- HEAD OF SCHOOL -->
+<section class="block alt">
+  <div class="wrap-narrow">
+    <div class="section-head">
+      <div class="kicker">From the Head of School</div>
+      <h2>Why we built this <em>differently.</em></h2>
+      <span class="accent-bar"></span>
+    </div>
+
+    <div class="head-note">
+      <div class="head-portrait" aria-hidden="true"></div>
+      <div class="body">
+        <p>For two decades I watched bright Muslim children leave school with strong transcripts and weak compasses. The grades opened doors, but the doors led to places they weren't ready for — and the deen rarely came with them.</p>
+        <p>Stewards is the school I wish I'd sent my own children to. Rigorous on paper, serious about character, and honest about what the world will ask of them. We treat your child as an amanah — not a customer, not a metric.</p>
+        <p>If that's the school you've been looking for, I'd be glad to meet you.</p>
+        <div class="sig">
+          <div class="sig-name">— Ustadh Ibrahim</div>
+          <div class="sig-role">Head of School</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- WHO -->
-<section class="block alt">
+<section class="block">
   <div class="wrap">
     <div class="section-head center">
       <div class="kicker">Who this is for</div>
-      <h2>A school with a brief, not a marketing department.</h2>
+      <h2>A school with a brief, <em>not a marketing department.</em></h2>
       <span class="accent-bar center"></span>
     </div>
 
@@ -814,32 +1426,32 @@
 
     <div class="diff-grid">
       <div class="diff-card">
-        <div class="dot">01</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
         <h4>Specialist teachers, small cohorts</h4>
         <p>Not lecture halls with cameras pointed at them.</p>
       </div>
       <div class="diff-card">
-        <div class="dot">02</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
         <h4>One adult who knows your child</h4>
         <p>A mentor stays with them across years — not a new face each term.</p>
       </div>
       <div class="diff-card">
-        <div class="dot">03</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2zM7 9h10M7 13h6"/></svg></div>
         <h4>Parents in the loop, not in the dark</h4>
         <p>Weekly signal on how your child is actually doing.</p>
       </div>
       <div class="diff-card">
-        <div class="dot">04</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20"/></svg></div>
         <h4>Off-screen by design</h4>
         <p>Projects, reading, salah, family — the day isn't lived in a tab.</p>
       </div>
       <div class="diff-card">
-        <div class="dot">05</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h4>Global ummah, one classroom</h4>
         <p>Your child grows up alongside Muslims from Lagos to London to Lahore.</p>
       </div>
       <div class="diff-card">
-        <div class="dot">06</div>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
         <h4>Deen anchors the day</h4>
         <p>Salah, adab, Quran. Not extras — the spine.</p>
       </div>
@@ -859,18 +1471,22 @@
 
     <div class="week-grid">
       <div class="slot morning">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
         <div class="when">Mornings</div>
         <p class="what">Live lessons in core subjects — small groups, real teachers.</p>
       </div>
       <div class="slot afternoon">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
         <div class="when">Afternoons</div>
         <p class="what">Independent work, mentorship, project blocks. Off the screen as much as possible.</p>
       </div>
       <div class="slot friday">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
         <div class="when">Fridays</div>
         <p class="what">Lighter academic load. Longer character and community work.</p>
       </div>
       <div class="slot always">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <div class="when">Throughout</div>
         <p class="what">Salah anchors the day. Not negotiable, not performative.</p>
       </div>
@@ -890,9 +1506,9 @@
 
     <div class="outcomes">
       <div class="out-row"><p>Sit IGCSEs and earn the grades a serious sixth form or university wants.</p></div>
-      <div class="out-row"><p>Hold a conversation in Arabic — and a conversation about Allah.</p></div>
+      <div class="out-row"><p>Hold a conversation <em>in Arabic</em> — and a conversation <em>about Allah.</em></p></div>
       <div class="out-row"><p>Build something — a small business, a project, a piece of writing — and stand behind it.</p></div>
-      <div class="out-row"><p>Make a decision under pressure without losing their adab.</p></div>
+      <div class="out-row"><p>Make a decision under pressure <em>without losing their adab.</em></p></div>
       <div class="out-row"><p>Walk into any room as a Muslim and add value.</p></div>
     </div>
   </div>
@@ -939,7 +1555,7 @@
     <h2>Your child has <em>one childhood.</em></h2>
     <p>One window to become a Muslim who can think, build, and lead. Stop renting it to a school that doesn't share your goals.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-gold">Apply for September intake</a>
+      <a href="#" class="btn btn-gold">Apply for September intake <span class="arrow">→</span></a>
       <a href="#call" class="btn btn-ghost on-dark">Book a 20-min call</a>
     </div>
   </div>
