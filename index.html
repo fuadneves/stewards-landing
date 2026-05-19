@@ -210,13 +210,7 @@
     opacity: 0.55;
     pointer-events: none;
   }
-  .hero::after {
-    content: "";
-    position: absolute; left: 0; right: 0; bottom: -1px; height: 100px;
-    background: linear-gradient(180deg, transparent, var(--bg));
-    pointer-events: none;
-    z-index: 3;
-  }
+  .hero::after { display: none; }
   .hero .wrap {
     position: relative; z-index: 2;
     display: grid;
