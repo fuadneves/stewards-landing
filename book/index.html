@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Book a Conversation — Stewards.ONE</title>
+<meta name="description" content="Book a 20-minute conversation with the Stewards.ONE admissions team." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:       #071b3a;
+    --navy-2:     #06172f;
+    --navy-deep:  #040f24;
+    --gold:       #dfbd63;
+    --gold-deep:  #b88a2a;
+    --gold-soft:  #fff7e7;
+    --gold-line:  rgba(223,189,99,0.45);
+    --ink:        #0f1d33;
+    --muted:      #526275;
+    --muted-soft: #6c7890;
+    --line:       rgba(7,27,58,.12);
+    --line-soft:  rgba(7,27,58,.06);
+    --paper:      #ffffff;
+    --bg:         #fbfaf5;
+    --cream:      #f5efe0;
+    --acc-green:  #55a860;
+    --shadow-sm:  0 10px 24px rgba(7,27,58,.06);
+    --shadow-md:  0 18px 44px rgba(7,27,58,.10);
+    --shadow-lg:  0 28px 80px rgba(7,27,58,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px) { .wrap, .wrap-narrow { padding: 0 22px; } }
+
+  h1, h2, h3, h4 {
+    font-family: 'Philosopher', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin: 0 0 0.5em;
+    color: var(--navy);
+  }
+  h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); letter-spacing: -0.035em; }
+  h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  h3 { font-size: 1.2rem; }
+  p { margin: 0 0 1em; color: var(--muted); }
+  em { font-style: italic; }
+  a { color: var(--navy); }
+
+  .kicker {
+    color: var(--gold-deep);
+    font-size: 12px; font-weight: 900;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin: 0 0 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--gold); }
+  .kicker.on-dark { color: var(--gold); }
+  .kicker.on-dark::before { background: var(--gold); }
+  .kicker.center { justify-content: center; }
+
+  .accent-bar {
+    display: block; width: 64px; height: 3px;
+    border-radius: 999px;
+    margin: 14px 0 20px;
+    background: linear-gradient(90deg, var(--gold), rgba(223,189,99,0));
+  }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,250,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .wrap {
+    display: flex; align-items: center; justify-content: space-between; height: 78px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-mark {
+    width: 42px; height: 42px;
+    background: var(--navy); border-radius: 11px;
+    display: grid; place-items: center; padding: 6px;
+    box-shadow: var(--shadow-sm);
+  }
+  .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+  .brand-text {
+    font-family: 'Philosopher', serif; font-size: 1.55rem;
+    font-weight: 700; color: var(--navy); letter-spacing: -0.02em;
+  }
+  .brand-text span { color: var(--gold-deep); }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a:not(.btn) {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.92rem; font-weight: 600;
+  }
+  .nav-links a:not(.btn):hover { color: var(--navy); }
+  @media (max-width: 820px) { .nav-links a:not(.btn) { display: none; } }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 24px; border-radius: 999px;
+    font-weight: 800; font-size: 0.94rem;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    white-space: nowrap; gap: 8px; font-family: inherit;
+  }
+  .btn-gold {
+    background: linear-gradient(180deg, #ecca78, var(--gold));
+    color: var(--navy);
+    box-shadow: 0 14px 30px rgba(223,189,99,0.38), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .btn-gold:hover:not(:disabled) { transform: translateY(-2px); }
+  .btn-gold:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-navy { background: var(--navy); color: #fff; }
+  .btn-ghost { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; }
+  .btn-sm { padding: 10px 18px; font-size: 0.86rem; }
+  .btn-block { width: 100%; padding: 16px 26px; font-size: 1rem; }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* HERO */
+  .book-hero {
+    background:
+      radial-gradient(circle at 88% 22%, rgba(223,189,99,0.26), transparent 38%),
+      radial-gradient(circle at 8% 92%, rgba(79,134,217,0.18), transparent 40%),
+      linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--navy-deep) 100%);
+    color: #fff; padding: 90px 0 70px;
+    position: relative; overflow: hidden;
+  }
+  .book-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23dfbd63' stroke-width='0.6' opacity='0.14'><path d='M60 10 L70 35 L95 30 L78 50 L98 70 L73 70 L70 95 L60 75 L50 95 L47 70 L22 70 L42 50 L25 30 L50 35 Z'/><circle cx='60' cy='60' r='3'/></g></svg>");
+    background-size: 120px 120px;
+    pointer-events: none;
+  }
+  .book-hero .wrap-narrow { position: relative; z-index: 2; text-align: center; }
+  .book-hero .kicker { justify-content: center; }
+  .book-hero h1 { color: #fff; margin-bottom: 0.3em; }
+  .book-hero h1 em { color: var(--gold); font-style: italic; }
+  .book-hero .lede {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.12rem; line-height: 1.6;
+    max-width: 56ch; margin: 0 auto;
+  }
+
+  /* BOOKING SECTION */
+  .booking {
+    padding: 70px 0 100px;
+    background: var(--bg);
+  }
+  .booking-grid {
+    display: grid; grid-template-columns: 0.82fr 1fr; gap: 28px;
+  }
+  @media (max-width: 920px) { .booking-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+  /* INFO CARD */
+  .info {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: var(--shadow-sm);
+    align-self: start;
+  }
+  @media (max-width: 640px) { .info { padding: 28px 24px; } }
+  .info h2 { font-size: 1.6rem; }
+  .info .meta {
+    display: grid; gap: 14px;
+    margin: 22px 0 28px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .info .meta-row {
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 14px; align-items: center;
+    font-size: 0.94rem;
+  }
+  .info .meta-row svg {
+    width: 18px; height: 18px;
+    color: var(--gold-deep);
+  }
+  .info .meta-row strong { color: var(--navy); font-weight: 700; }
+  .info .meta-row span { color: var(--muted); }
+  .info h3.cover {
+    font-size: 1rem;
+    margin-bottom: 14px;
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+  .info ul.cover-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .info ul.cover-list li {
+    padding: 10px 0; padding-left: 26px;
+    position: relative;
+    font-size: 0.94rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .info ul.cover-list li:last-child { border-bottom: none; }
+  .info ul.cover-list li::before {
+    content: "";
+    position: absolute; left: 0; top: 18px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* CALENDAR CARD */
+  .cal {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+  @media (max-width: 640px) { .cal { padding: 28px 22px; } }
+  .cal-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 22px;
+  }
+  .cal-head h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+  }
+  .cal-nav { display: flex; gap: 6px; }
+  .cal-nav button {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: background 0.15s, color 0.15s;
+  }
+  .cal-nav button:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .cal-nav svg { width: 14px; height: 14px; }
+
+  .cal-body {
+    display: grid; grid-template-columns: 1fr 230px; gap: 26px;
+  }
+  @media (max-width: 720px) { .cal-body { grid-template-columns: 1fr; } }
+
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+  }
+  .cal-dow {
+    text-align: center;
+    font-size: 0.72rem; font-weight: 800;
+    color: var(--muted-soft);
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    text-transform: uppercase;
+  }
+  .cal-cell {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 0.92rem; font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    user-select: none;
+    position: relative;
+  }
+  .cal-cell.empty { cursor: default; }
+  .cal-cell.past, .cal-cell.unavailable {
+    color: var(--muted-soft);
+    cursor: not-allowed;
+  }
+  .cal-cell.past { opacity: 0.4; }
+  .cal-cell.available:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+  }
+  .cal-cell.available {
+    background: var(--bg);
+    border-color: var(--line-soft);
+  }
+  .cal-cell.selected {
+    background: var(--navy) !important;
+    color: #fff !important;
+    border-color: var(--navy) !important;
+  }
+  .cal-cell.today::after {
+    content: "";
+    position: absolute; bottom: 4px;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .cal-cell.selected.today::after { background: var(--gold); }
+
+  /* TIME SLOTS */
+  .slots {
+    display: flex; flex-direction: column;
+    border-left: 1px solid var(--line-soft);
+    padding-left: 26px;
+  }
+  @media (max-width: 720px) {
+    .slots { border-left: none; padding-left: 0; padding-top: 22px; border-top: 1px solid var(--line-soft); }
+  }
+  .slots-head {
+    font-family: 'Philosopher', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .slots-head small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.74rem;
+    color: var(--muted-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .slot-list {
+    display: grid; gap: 8px;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 380px;
+    margin: 0; padding: 0 4px 0 0;
+    list-style: none;
+  }
+  @media (max-width: 720px) { .slot-list { max-height: none; grid-template-columns: repeat(2, 1fr); } }
+  .slot-btn {
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem; font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+    font-variant-numeric: tabular-nums;
+  }
+  .slot-btn:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+  }
+  .slot-btn.selected {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    box-shadow: 0 8px 18px rgba(7,27,58,0.18);
+  }
+  .slot-empty {
+    padding: 30px 16px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--muted-soft);
+    background: var(--bg);
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+  }
+
+  /* FOOTER OF CARD - CONFIRM */
+  .cal-foot {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line-soft);
+    display: grid; grid-template-columns: 1fr auto; gap: 16px;
+    align-items: center;
+  }
+  @media (max-width: 640px) { .cal-foot { grid-template-columns: 1fr; } }
+  .cal-summary {
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .cal-summary strong { color: var(--navy); font-weight: 700; }
+  .cal-summary .empty { color: var(--muted-soft); font-style: italic; }
+  .tz-note {
+    font-size: 0.78rem;
+    color: var(--muted-soft);
+    margin-top: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tz-note svg { width: 14px; height: 14px; color: var(--gold-deep); }
+
+  /* SUCCESS */
+  .cal.confirmed .cal-body,
+  .cal.confirmed .cal-head,
+  .cal.confirmed .cal-foot,
+  .cal.confirmed .tz-note { display: none; }
+  .confirm-state { display: none; text-align: center; padding: 30px 10px; }
+  .cal.confirmed .confirm-state { display: block; }
+  .confirm-state .check {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: rgba(85,168,96,0.15);
+    color: var(--acc-green);
+    display: grid; place-items: center;
+    margin: 0 auto 24px;
+  }
+  .confirm-state .check svg { width: 36px; height: 36px; }
+  .confirm-state h3 { font-size: 1.5rem; margin-bottom: 0.4em; }
+  .confirm-state p { font-size: 1rem; max-width: 44ch; margin: 0 auto 0.8em; }
+  .confirm-state .booked-time {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    font-family: 'Philosopher', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 14px 0;
+  }
+  .confirm-state .cta-row { justify-content: center; margin-top: 24px; }
+  .confirm-state .small {
+    font-size: 0.82rem; color: var(--muted-soft);
+    margin-top: 20px;
+  }
+
+  /* PREFER WRITING */
+  .prefer {
+    padding: 80px 0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(223,189,99,0.10), transparent 50%),
+      var(--cream);
+    text-align: center;
+  }
+  .prefer h2 { margin-bottom: 0.4em; }
+  .prefer h2 em { color: var(--gold-deep); font-style: italic; }
+  .prefer p { font-size: 1.02rem; max-width: 56ch; margin: 0 auto 26px; }
+  .prefer .cta-row { justify-content: center; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.55);
+    padding: 50px 0;
+    font-size: 0.88rem;
+  }
+  footer .wrap {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    justify-content: space-between; align-items: center;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer .brand-text { color: #fff; font-size: 1.25rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <div class="brand-mark">
+        <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/Stewards-emblem-white.png" alt="Stewards emblem" />
+      </div>
+      <div class="brand-text">Stewards<span>.</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/#model">Model</a>
+      <a href="/prospectus/">Prospectus</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/apply/" class="btn btn-navy btn-sm">Apply</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="book-hero">
+  <div class="wrap-narrow">
+    <div class="kicker on-dark">Admissions conversation</div>
+    <h1>Book a <em>conversation.</em></h1>
+    <p class="lede">A 20-minute video call with our admissions team. Bring your questions; we'll bring ours. No pressure either way.</p>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking">
+  <div class="wrap">
+    <div class="booking-grid">
+
+      <!-- LEFT: info card -->
+      <div class="info">
+        <h2>What to expect.</h2>
+        <span class="accent-bar"></span>
+
+        <div class="meta">
+          <div class="meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><strong>20 minutes</strong> <span>· focused and efficient</span></div>
+          </div>
+          <div class="meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M22 10l-6 4 6 4z"/></svg>
+            <div><strong>Video call</strong> <span>· Google Meet link in your confirmation</span></div>
+          </div>
+          <div class="meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+            <div><strong>Admissions team</strong> <span>· principal joins where relevant</span></div>
+          </div>
+        </div>
+
+        <h3 class="cover">What we'll cover</h3>
+        <ul class="cover-list">
+          <li>Your child — interests, current school, what's working and what isn't</li>
+          <li>The Stewards.ONE model and whether it's a fit</li>
+          <li>How the year you're applying for actually runs</li>
+          <li>Fees, timezones, and onboarding</li>
+          <li>Your questions — anything you want clear before applying</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: calendar -->
+      <div class="cal" id="cal">
+        <div class="cal-head">
+          <h3 id="monthLabel">November 2026</h3>
+          <div class="cal-nav">
+            <button type="button" aria-label="Previous month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" aria-label="Next month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cal-body">
+          <div>
+            <div class="cal-grid" id="calGrid">
+              <div class="cal-dow">Mon</div>
+              <div class="cal-dow">Tue</div>
+              <div class="cal-dow">Wed</div>
+              <div class="cal-dow">Thu</div>
+              <div class="cal-dow">Fri</div>
+              <div class="cal-dow">Sat</div>
+              <div class="cal-dow">Sun</div>
+              <!-- Cells injected by JS -->
+            </div>
+            <div class="tz-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+              Times shown in <strong style="color:var(--ink);margin-left:4px;">Europe/London (GMT)</strong>
+            </div>
+          </div>
+
+          <div class="slots">
+            <div class="slots-head" id="slotsHead">
+              Select a date
+              <small>Available times will appear here</small>
+            </div>
+            <ul class="slot-list" id="slotList">
+              <li class="slot-empty">Pick a date on the calendar to see available 20-minute slots.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-foot">
+          <div class="cal-summary" id="summary">
+            <span class="empty">No time selected yet.</span>
+          </div>
+          <button class="btn btn-gold" id="confirmBtn" disabled>
+            Confirm booking <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <div class="confirm-state">
+          <div class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3>You're booked in.</h3>
+          <p>We've got your conversation locked in for:</p>
+          <div class="booked-time" id="bookedTime">—</div>
+          <p>A calendar invite with the video link is on its way to your inbox.</p>
+          <p class="small">Need to reschedule? Reply to that email and we'll sort it.</p>
+          <div class="cta-row">
+            <a href="/" class="btn btn-ghost">Back to home</a>
+            <a href="/apply/" class="btn btn-gold">Begin application</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PREFER WRITING -->
+<section class="prefer">
+  <div class="wrap-narrow">
+    <div class="kicker center">Prefer to write?</div>
+    <h2>Skip the call and <em>send a note.</em></h2>
+    <p>If a video call doesn't suit your schedule, you can apply directly and we'll reach out with questions and answers in writing.</p>
+    <div class="cta-row">
+      <a href="/apply/" class="btn btn-gold">Apply for 2026/27 <span class="arrow">→</span></a>
+      <a href="/prospectus/" class="btn btn-ghost">Read prospectus first</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand">
+      <div class="brand-mark">
+        <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/Stewards-emblem-white.png" alt="Stewards emblem" />
+      </div>
+      <div class="brand-text">Stewards<span style="color:var(--gold);">.</span></div>
+    </a>
+    <div>
+      © Stewards · <a href="https://www.stewards.one/">stewards.one</a> · An online IGCSE school for Years 7–11.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Mock calendar — visual only, no real booking backend ----
+  // Hardcoded month so the layout looks alive without needing a "today" reference.
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const view = { year: 2026, month: 10 /* November (0-indexed) */ };
+  // Days that are "available" — every weekday except those marked unavailable.
+  // (Mock data — chosen to look realistic.)
+  const unavailable = new Set([4, 11, 18, 25]); // every Wed as a holding pattern
+  const todayDate = 17; // pretend "today" for the dot indicator
+
+  const calGrid = document.getElementById('calGrid');
+  const monthLabel = document.getElementById('monthLabel');
+  const slotsHead = document.getElementById('slotsHead');
+  const slotList = document.getElementById('slotList');
+  const summary = document.getElementById('summary');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const calCard = document.getElementById('cal');
+  const bookedTime = document.getElementById('bookedTime');
+
+  let selectedDate = null;
+  let selectedSlot = null;
+
+  // Slot data — same 6 slots per available date for simplicity.
+  const slotsByDate = {
+    default: ['10:00', '10:30', '11:00', '14:00', '14:30', '15:30']
+  };
+
+  function renderCalendar() {
+    // Clear existing cells (keep day-of-week headers)
+    while (calGrid.children.length > 7) calGrid.removeChild(calGrid.lastChild);
+
+    monthLabel.textContent = `${MONTHS[view.month]} ${view.year}`;
+
+    const first = new Date(view.year, view.month, 1);
+    const daysInMonth = new Date(view.year, view.month + 1, 0).getDate();
+    // JS getDay: Sun=0..Sat=6. We want Mon=0..Sun=6
+    const firstDay = (first.getDay() + 6) % 7;
+
+    // Empty leading cells
+    for (let i = 0; i < firstDay; i++) {
+      const c = document.createElement('div');
+      c.className = 'cal-cell empty';
+      calGrid.appendChild(c);
+    }
+    // Date cells
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+
+      const dayOfWeek = (new Date(view.year, view.month, d).getDay() + 6) % 7;
+      const isPast = d < todayDate;
+      const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
+
+      if (d === todayDate) cell.classList.add('today');
+
+      if (isPast || isWeekend || unavailable.has(d)) {
+        cell.classList.add(isPast ? 'past' : 'unavailable');
+      } else {
+        cell.classList.add('available');
+        cell.addEventListener('click', () => selectDate(d, cell));
+      }
+
+      calGrid.appendChild(cell);
+    }
+  }
+
+  function selectDate(d, cell) {
+    selectedDate = d;
+    selectedSlot = null;
+    // Toggle visual selection
+    document.querySelectorAll('.cal-cell.selected').forEach(c => c.classList.remove('selected'));
+    cell.classList.add('selected');
+
+    // Update slots header
+    const dateObj = new Date(view.year, view.month, d);
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    slotsHead.innerHTML = `${dayNames[dateObj.getDay()]}, ${d} ${MONTHS[view.month]}<small>${slotsByDate.default.length} slots available</small>`;
+
+    // Render slot buttons
+    slotList.innerHTML = '';
+    slotsByDate.default.forEach(time => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'slot-btn';
+      btn.textContent = time;
+      btn.addEventListener('click', () => selectSlot(time, btn));
+      li.appendChild(btn);
+      slotList.appendChild(li);
+    });
+
+    updateSummary();
+  }
+
+  function selectSlot(time, btn) {
+    selectedSlot = time;
+    document.querySelectorAll('.slot-btn.selected').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    updateSummary();
+  }
+
+  function updateSummary() {
+    if (selectedDate && selectedSlot) {
+      summary.innerHTML = `<strong>${selectedSlot}</strong> on <strong>${selectedDate} ${MONTHS[view.month]} ${view.year}</strong>`;
+      confirmBtn.disabled = false;
+    } else if (selectedDate) {
+      summary.innerHTML = `Pick a time on <strong>${selectedDate} ${MONTHS[view.month]}</strong>.`;
+      confirmBtn.disabled = true;
+    } else {
+      summary.innerHTML = `<span class="empty">No time selected yet.</span>`;
+      confirmBtn.disabled = true;
+    }
+  }
+
+  confirmBtn.addEventListener('click', () => {
+    if (!selectedDate || !selectedSlot) return;
+    bookedTime.textContent = `${selectedSlot} · ${selectedDate} ${MONTHS[view.month]} ${view.year}`;
+    calCard.classList.add('confirmed');
+    window.scrollTo({ top: calCard.offsetTop - 80, behavior: 'smooth' });
+  });
+
+  // Month nav buttons — left as no-ops since this is a static demo,
+  // but they show a brief shake to acknowledge interaction.
+  document.querySelectorAll('.cal-nav button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.animate(
+        [{ transform: 'translateX(0)' }, { transform: 'translateX(-3px)' }, { transform: 'translateX(3px)' }, { transform: 'translateX(0)' }],
+        { duration: 220 }
+      );
+    });
+  });
+
+  renderCalendar();
+</script>
+
+</body>
+</html>
