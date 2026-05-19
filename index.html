@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stewards — An IGCSE for Muslim children who'll have to lead</title>
-<meta name="description" content="A global online IGCSE homeschool for Muslim families. Academics, character, and real-world readiness — taught as one thing." />
+<title>Stewards.ONE — The Top Online School Raising Global Stewards</title>
+<meta name="description" content="An online IGCSE school for Years 7–11. We bridge the gap for families between academic excellence and real-world readiness." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
@@ -69,7 +69,6 @@
   em { font-style: italic; }
   a { color: var(--navy); }
 
-  /* KICKER */
   .kicker {
     color: var(--gold-deep);
     font-size: 12px;
@@ -87,7 +86,6 @@
   .kicker.on-dark { color: var(--gold); }
   .kicker.on-dark::before { background: var(--gold); }
 
-  /* Section heading underline */
   .accent-bar {
     display: block;
     width: 72px; height: 3px;
@@ -97,7 +95,6 @@
   }
   .accent-bar.center { margin-left: auto; margin-right: auto; }
 
-  /* Ornamental divider (gold flourish between sections) */
   .ornament {
     display: flex; align-items: center; justify-content: center;
     gap: 14px;
@@ -111,7 +108,6 @@
   }
   .ornament svg { width: 24px; height: 24px; }
 
-  /* NAV */
   nav.top {
     position: sticky; top: 0; z-index: 50;
     background: rgba(251,250,245,0.92);
@@ -156,7 +152,6 @@
     .nav-links a:not(.btn) { display: none; }
   }
 
-  /* BUTTONS */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 15px 26px;
@@ -207,7 +202,6 @@
     overflow: hidden;
     padding: 90px 0 110px;
   }
-  /* Islamic geometric pattern overlay */
   .hero::before {
     content: "";
     position: absolute; inset: 0;
@@ -294,7 +288,6 @@
   }
   .hero-meta i { color: var(--gold); font-style: normal; }
 
-  /* HERO VISUAL — layered cards */
   .hero-visual {
     position: relative;
     height: 540px;
@@ -310,7 +303,6 @@
     padding: 22px;
     border: 1px solid rgba(255,255,255,0.1);
   }
-  /* Schedule card (back) */
   .h-card.schedule {
     top: 0; right: 0;
     width: 320px;
@@ -355,7 +347,6 @@
   .h-card.schedule .subj .dot.a { background: var(--acc-green); }
   .h-card.schedule .subj .dot.c { background: var(--acc-red); }
 
-  /* Quote card (middle, prominent) */
   .h-card.quote {
     bottom: 80px; left: 0;
     width: 340px;
@@ -394,7 +385,6 @@
   .h-card.quote .name { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
   .h-card.quote .loc { font-size: 0.72rem; color: var(--muted); }
 
-  /* Stat pill (foreground) */
   .h-card.stat {
     bottom: 0; right: 30px;
     width: 200px;
@@ -416,7 +406,6 @@
     letter-spacing: 0.08em; text-transform: uppercase;
     margin-top: 8px; display: block;
   }
-  /* Decorative star behind cards */
   .hero-visual::before {
     content: "";
     position: absolute;
@@ -430,7 +419,6 @@
     z-index: 0;
   }
 
-  /* TRUST STRIP */
   .trust {
     background: var(--navy);
     color: #fff;
@@ -452,7 +440,6 @@
   .trust .divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
   @media (max-width: 820px) { .trust .divider { display: none; } }
 
-  /* TENSION (with drop cap) */
   .tension {
     padding: 120px 0;
     background: var(--bg);
@@ -481,7 +468,6 @@
   .tension p.dim { color: var(--muted); }
   .tension p em { color: var(--gold-deep); }
 
-  /* SECTION BASE */
   section.block { padding: 130px 0; position: relative; }
   section.block.alt { background: var(--paper); }
   section.block.dark {
@@ -506,7 +492,6 @@
   .section-head p { font-size: 1.12rem; line-height: 1.65; color: var(--muted); }
   section.block.dark .section-head p { color: rgba(255,255,255,0.78); }
 
-  /* STATS STRIP */
   .stats {
     padding: 70px 0;
     background: linear-gradient(180deg, var(--bg), var(--cream));
@@ -544,7 +529,6 @@
     letter-spacing: 0.08em; text-transform: uppercase;
   }
 
-  /* MODEL PILLARS */
   .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -606,11 +590,7 @@
     background: var(--gold); margin-top: 8px;
   }
 
-  /* PATHWAY — journey style */
-  .journey {
-    margin-top: 30px;
-    position: relative;
-  }
+  .journey { margin-top: 30px; position: relative; }
   .journey::before {
     content: "";
     position: absolute;
@@ -629,9 +609,7 @@
   }
   @media (max-width: 1000px) { .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
   @media (max-width: 600px) { .journey-grid { grid-template-columns: 1fr; } }
-  .stop {
-    text-align: center;
-  }
+  .stop { text-align: center; }
   .stop .node {
     width: 76px; height: 76px;
     border-radius: 50%;
@@ -715,7 +693,6 @@
     margin: 0; color: rgba(255,255,255,0.82); font-size: 0.96rem;
   }
 
-  /* TESTIMONIAL */
   .testimonial {
     padding: 130px 0;
     background:
@@ -766,7 +743,6 @@
   .testimonial .author .nm { font-size: 0.88rem; font-weight: 800; color: var(--navy); }
   .testimonial .author .lo { font-size: 0.76rem; color: var(--muted); }
 
-  /* WHO */
   .who-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -815,7 +791,6 @@
     content: "✕"; color: var(--muted-soft); font-weight: 900; flex-shrink: 0; font-size: 0.92rem;
   }
 
-  /* HEAD OF SCHOOL */
   .head-note {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -861,7 +836,6 @@
     font-weight: 700;
   }
 
-  /* DIFFERENCE */
   .diff-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -890,7 +864,6 @@
   .diff-card h4 { color: #fff; margin-bottom: 0.4em; font-size: 1.1rem; }
   .diff-card p { margin: 0; font-size: 0.93rem; color: rgba(255,255,255,0.72); }
 
-  /* WEEK */
   .week-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -929,7 +902,6 @@
   }
   .slot .what { font-size: 0.94rem; color: var(--muted); margin: 0; }
 
-  /* OUTCOMES */
   .outcomes {
     margin-top: 50px;
     counter-reset: outc;
@@ -963,7 +935,6 @@
   }
   .out-row p em { color: var(--gold); font-style: italic; }
 
-  /* FAQ */
   .faqs { margin-top: 40px; }
   details {
     border: 1px solid var(--line);
@@ -1004,7 +975,6 @@
     line-height: 1.65;
   }
 
-  /* FINAL CTA */
   .final {
     background:
       radial-gradient(circle at 50% -10%, rgba(223,189,99,0.30), transparent 50%),
@@ -1029,7 +999,7 @@
   .final .wrap-narrow { position: relative; z-index: 2; }
   .final h2 {
     color: #fff;
-    max-width: 20ch;
+    max-width: 22ch;
     margin: 0 auto 0.5em;
     font-size: clamp(2.4rem, 5vw, 4rem);
   }
@@ -1037,12 +1007,11 @@
   .final p {
     color: rgba(255,255,255,0.82);
     font-size: 1.22rem;
-    max-width: 52ch;
+    max-width: 56ch;
     margin: 0 auto 2.6em;
   }
   .final .cta-row { justify-content: center; }
 
-  /* FOOTER */
   footer {
     background: var(--navy-deep);
     color: rgba(255,255,255,0.55);
@@ -1084,9 +1053,9 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
-      <div class="kicker on-dark">A Global Online IGCSE Homeschool · Years 7–11</div>
-      <h1>An IGCSE for Muslim children who'll have to <em>lead.</em></h1>
-      <p class="lede">IGCSE rigour, character formation, and real-world skill — so your child graduates with the grades, the deen, and the ability to actually <em>do something</em> with both.</p>
+      <div class="kicker on-dark">An Online IGCSE School · Years 7–11</div>
+      <h1>The online school raising <em>global stewards.</em></h1>
+      <p class="lede">Bridging academic excellence and real-world readiness. A global community where students develop intellectual capability — and the life skills to <em>lead with purpose.</em></p>
 
       <div class="badges">
         <span class="badge"><strong>A</strong>Academics</span>
@@ -1095,33 +1064,32 @@
       </div>
 
       <div class="cta-row">
-        <a href="#apply" class="btn btn-gold">Apply for September intake <span class="arrow">→</span></a>
-        <a href="#call" class="btn btn-ghost on-dark">Book a 20-min call</a>
+        <a href="#apply" class="btn btn-gold">Apply for 2026/27 <span class="arrow">→</span></a>
+        <a href="#call" class="btn btn-ghost on-dark">Read prospectus</a>
       </div>
 
       <div class="hero-meta">
-        Years 7–11 <i>·</i> Fully online <i>·</i> 14+ countries <i>·</i> Small cohorts
+        Years 7–11 <i>·</i> Fully online <i>·</i> Three pillars <i>·</i> One pathway
       </div>
     </div>
 
     <div class="hero-visual">
-      <!-- Back card: schedule -->
       <div class="h-card schedule">
         <div class="head">
           <div class="day">Tuesday</div>
           <div class="yr">Year 9</div>
         </div>
         <div class="row">
-          <div class="time">08:00</div>
-          <div class="subj"><span class="dot q"></span>Quran &amp; Tafsir</div>
-        </div>
-        <div class="row">
-          <div class="time">09:15</div>
+          <div class="time">09:00</div>
           <div class="subj"><span class="dot m"></span>Mathematics</div>
         </div>
         <div class="row">
-          <div class="time">11:00</div>
-          <div class="subj"><span class="dot a"></span>Arabic Conversation</div>
+          <div class="time">10:30</div>
+          <div class="subj"><span class="dot a"></span>English</div>
+        </div>
+        <div class="row">
+          <div class="time">13:00</div>
+          <div class="subj"><span class="dot q"></span>Arabic</div>
         </div>
         <div class="row">
           <div class="time">14:30</div>
@@ -1129,7 +1097,6 @@
         </div>
       </div>
 
-      <!-- Foreground card: quote -->
       <div class="h-card quote">
         <div class="q-mark">"</div>
         <p>My son who hated English is now doing Year 7 English and it's <em>his favourite subject.</em></p>
@@ -1142,10 +1109,9 @@
         </div>
       </div>
 
-      <!-- Stat card -->
       <div class="h-card stat">
-        <div class="num"><span>14</span>+</div>
-        <span class="lbl">Countries served</span>
+        <div class="num"><span>0</span></div>
+        <span class="lbl">Written off</span>
       </div>
     </div>
   </div>
@@ -1160,18 +1126,18 @@
     </div>
     <div class="divider"></div>
     <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      6+ IGCSE subjects
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+      5-year formation pathway
+    </div>
+    <div class="divider"></div>
+    <div class="item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
-      Students in 14+ countries
-    </div>
-    <div class="divider"></div>
-    <div class="item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-      Small cohorts · 12–16 students
-    </div>
-    <div class="divider"></div>
-    <div class="item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-      Salah anchors the day
+      Global community of learners
     </div>
   </div>
 </div>
@@ -1181,13 +1147,12 @@
   <div class="wrap-narrow">
     <div class="kicker">The tension</div>
     <p><span class="drop">M</span>ost schools optimise for one thing: <em>exam results.</em></p>
-    <p class="dim">Good grades. Empty graduates. Confident on a test, lost in the world. Disconnected from their deen by the time they reach sixth form.</p>
-    <p>You don't want a transcript. You want a Muslim adult — <em>sharp, principled, and useful.</em></p>
+    <p class="dim">Good grades. Capable on a test, less so in the world. A transcript that opens doors — and a graduate underprepared for what's behind them.</p>
+    <p>You want both. <em>Strong academics</em> and a young adult who can think, build, and lead.</p>
     <p class="dim">That's a different brief. It needs a different school.</p>
   </div>
 </section>
 
-<!-- Ornament -->
 <div class="ornament">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3 8h9l-7 5 3 8-8-6-8 6 3-8-7-5h9z" opacity="0.85"/></svg>
 </div>
@@ -1197,20 +1162,20 @@
   <div class="wrap">
     <div class="grid">
       <div class="stat-item">
-        <div class="num"><em>5</em>yr</div>
-        <div class="lbl">IGCSE Pathway</div>
+        <div class="num"><em>3</em></div>
+        <div class="lbl">Core Pillars</div>
       </div>
       <div class="stat-item">
-        <div class="num">14<em>+</em></div>
-        <div class="lbl">Countries</div>
+        <div class="num">6<em>+</em></div>
+        <div class="lbl">IGCSE Subjects</div>
       </div>
       <div class="stat-item">
-        <div class="num">12<em>—</em>16</div>
-        <div class="lbl">Per Cohort</div>
+        <div class="num">5<em>yr</em></div>
+        <div class="lbl">Formation Pathway</div>
       </div>
       <div class="stat-item">
-        <div class="num">1<em>:</em>1</div>
-        <div class="lbl">Mentor Per Child</div>
+        <div class="num"><em>0</em></div>
+        <div class="lbl">Written Off</div>
       </div>
     </div>
   </div>
@@ -1220,10 +1185,10 @@
 <section class="block alt" id="model">
   <div class="wrap">
     <div class="section-head center">
-      <div class="kicker">The model · 365° formation</div>
-      <h2>Three things, taught as <em>one thing.</em></h2>
+      <div class="kicker">The 365° formation model</div>
+      <h2>Three connected pillars, working as <em>one.</em></h2>
       <span class="accent-bar center"></span>
-      <p>Academics, character, and real-world capability aren't separate tracks. They're the same education, looked at from different angles.</p>
+      <p>Academics, business, and character — taught together as one coherent formation, not three separate tracks.</p>
     </div>
 
     <div class="pillars">
@@ -1235,26 +1200,26 @@
         </div>
         <span class="tag">Academics</span>
         <h3>Grades that travel.</h3>
-        <p>Full IGCSE pathway, internationally recognised, university-ready. Specialists, not generalists.</p>
+        <p>A full IGCSE pathway, internationally recognised and university-ready. Taught by specialist teachers.</p>
         <ul>
-          <li>Maths, English, Sciences</li>
+          <li>Maths, English, Science, Geography</li>
+          <li>Computer Science</li>
           <li>Arabic + Islamic Arts</li>
-          <li>Electives by interest</li>
         </ul>
       </div>
       <div class="pillar p2">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20"/>
           </svg>
         </div>
         <span class="tag">Character</span>
-        <h3>Inner work that holds.</h3>
-        <p>Adab, akhlaq, and tarbiyah — woven into the week, not bolted on for Fridays. Your child as amanah.</p>
+        <h3>Thinking clearly, acting well.</h3>
+        <p>We want young people who can think clearly, act with integrity, and use their gifts with purpose.</p>
         <ul>
-          <li>Daily salah anchored</li>
-          <li>Mentor across years</li>
-          <li>Quran &amp; tafsir built in</li>
+          <li>Mentor across all five years</li>
+          <li>Decision-making under pressure</li>
+          <li>Genuine care for each child</li>
         </ul>
       </div>
       <div class="pillar p3">
@@ -1263,13 +1228,13 @@
             <path d="M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M10 5h4"/>
           </svg>
         </div>
-        <span class="tag">Real-world</span>
+        <span class="tag">Business</span>
         <h3>Skill you can use.</h3>
-        <p>Business fundamentals, communication, projects with actual outputs. They'll ship something before they sit a paper.</p>
+        <p>Practical capability — communication, problem-solving, projects with real outputs. Ready to contribute well in the world.</p>
         <ul>
           <li>Build a small venture</li>
           <li>Public speaking + writing</li>
-          <li>Internship by Year 10</li>
+          <li>Portfolio work by Year 10</li>
         </ul>
       </div>
     </div>
@@ -1298,7 +1263,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">The pathway</div>
-      <h2>Five years. Grades <em>and</em> a track record.</h2>
+      <h2>Year 7 to Year 11 through <em>one clear, structured pathway.</em></h2>
       <span class="accent-bar"></span>
       <p>Each year builds toward an outcome you can point to — not just a report card.</p>
     </div>
@@ -1309,7 +1274,7 @@
           <div class="node"><strong>7</strong>Year</div>
           <div class="card">
             <h3>Foundations</h3>
-            <p>Study habits, learning rhythm, Arabic basics, first cohort friendships.</p>
+            <p>Study habits, learning rhythm, first cohort friendships, getting the basics right.</p>
             <div class="out">First independent project</div>
           </div>
         </div>
@@ -1317,7 +1282,7 @@
           <div class="node"><strong>8</strong>Year</div>
           <div class="card">
             <h3>Depth + voice</h3>
-            <p>Subject depth, Arabic fluency build, presentation skills, mentorship deepens.</p>
+            <p>Subject depth, presentation skills, mentorship deepens as specialisations begin.</p>
             <div class="out">Public presentation</div>
           </div>
         </div>
@@ -1325,7 +1290,7 @@
           <div class="node"><strong>9</strong>Year</div>
           <div class="card">
             <h3>IGCSE begins</h3>
-            <p>Coursework starts. Specialisations chosen. First business or community project.</p>
+            <p>Coursework starts. Subject choices firm up. First substantial project takes shape.</p>
             <div class="out">Business / community project</div>
           </div>
         </div>
@@ -1333,7 +1298,7 @@
           <div class="node"><strong>10</strong>Year</div>
           <div class="card">
             <h3>IGCSE core</h3>
-            <p>Exam preparation deepens. Portfolio work. Real-world placement.</p>
+            <p>Exam preparation deepens. Portfolio work matures. Real-world placement.</p>
             <div class="out">Internship or portfolio piece</div>
           </div>
         </div>
@@ -1349,10 +1314,10 @@
 
       <div class="journey-foot">
         <div class="txt">
-          <strong>And after Year 11?</strong>
-          <p>A-Levels, university, apprenticeship, or their own venture. We help them map it — and stay in their corner after they leave.</p>
+          <strong>Beyond Year 11</strong>
+          <p>Whatever comes next — university, apprenticeship, or their own venture — students leave grounded, capable, and ready to contribute well in the world.</p>
         </div>
-        <a href="#call" class="btn btn-gold">Talk to us about the pathway</a>
+        <a href="#call" class="btn btn-gold">Talk to admissions</a>
       </div>
     </div>
   </div>
@@ -1362,8 +1327,8 @@
 <section class="block alt">
   <div class="wrap-narrow">
     <div class="section-head">
-      <div class="kicker">From the Head of School</div>
-      <h2>Why we built this <em>differently.</em></h2>
+      <div class="kicker">A welcome from the Principal</div>
+      <h2>Education with <em>purpose.</em></h2>
       <span class="accent-bar"></span>
     </div>
 
@@ -1393,8 +1358,8 @@
       <div class="who-col for">
         <h3><span class="check">✓</span> This is for you if…</h3>
         <ul>
-          <li>You're a Muslim family anywhere with stable internet</li>
-          <li>You want academic excellence <em>and</em> refuse to outsource character</li>
+          <li>You're a family anywhere with stable internet</li>
+          <li>You want academic excellence <em>and</em> real-world readiness</li>
           <li>Your child is roughly 11–16 (Years 7–11)</li>
           <li>Your home is ready to partner — not just enrol</li>
         </ul>
@@ -1404,7 +1369,7 @@
         <ul>
           <li>You're shopping for the cheapest credential</li>
           <li>You want a screen to park a child in front of</li>
-          <li>You want character taught only on Fridays</li>
+          <li>You only want academics, with no formation work</li>
           <li>You'd rather not be involved</li>
         </ul>
       </div>
@@ -1430,28 +1395,28 @@
       </div>
       <div class="diff-card">
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
-        <h4>One adult who knows your child</h4>
-        <p>A mentor stays with them across years — not a new face each term.</p>
+        <h4>One mentor who knows your child</h4>
+        <p>A consistent adult through all five years — not a new face each term.</p>
       </div>
       <div class="diff-card">
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2zM7 9h10M7 13h6"/></svg></div>
         <h4>Parents in the loop, not in the dark</h4>
-        <p>Weekly signal on how your child is actually doing.</p>
+        <p>A genuine signal on how your child is actually doing — not termly silence.</p>
       </div>
       <div class="diff-card">
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20"/></svg></div>
         <h4>Off-screen by design</h4>
-        <p>Projects, reading, salah, family — the day isn't lived in a tab.</p>
+        <p>Projects, reading, and family time — the day isn't lived in a tab.</p>
       </div>
       <div class="diff-card">
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h4>Global ummah, one classroom</h4>
-        <p>Your child grows up alongside Muslims from Lagos to London to Lahore.</p>
+        <h4>Global community, one classroom</h4>
+        <p>Students learning alongside peers from across the world.</p>
       </div>
       <div class="diff-card">
-        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
-        <h4>Deen anchors the day</h4>
-        <p>Salah, adab, Quran. Not extras — the spine.</p>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>Formation, not just instruction</h4>
+        <p>Character and capability are built into the week — not bolted on once a term.</p>
       </div>
     </div>
   </div>
@@ -1464,7 +1429,7 @@
       <div class="kicker">A week at Stewards</div>
       <h2>The rhythm matters as much as the content.</h2>
       <span class="accent-bar"></span>
-      <p>A real schedule, not a content dump. Structured time, off-screen blocks, and salah holding it all together.</p>
+      <p>A real schedule, not a content dump. Structured time, off-screen blocks, and mentorship throughout.</p>
     </div>
 
     <div class="week-grid">
@@ -1479,14 +1444,14 @@
         <p class="what">Independent work, mentorship, project blocks. Off the screen as much as possible.</p>
       </div>
       <div class="slot friday">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg></div>
         <div class="when">Fridays</div>
         <p class="what">Lighter academic load. Longer character and community work.</p>
       </div>
       <div class="slot always">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <div class="when">Throughout</div>
-        <p class="what">Salah anchors the day. Not negotiable, not performative.</p>
+        <p class="what">Mentorship and formation run through the whole week — not bolted on once a term.</p>
       </div>
     </div>
   </div>
@@ -1503,11 +1468,11 @@
     </div>
 
     <div class="outcomes">
-      <div class="out-row"><p>Sit IGCSEs and earn the grades a serious sixth form or university wants.</p></div>
-      <div class="out-row"><p>Hold a conversation <em>in Arabic</em> — and a conversation <em>about Allah.</em></p></div>
+      <div class="out-row"><p>Sit IGCSEs and earn the grades a serious sixth form or university expects.</p></div>
+      <div class="out-row"><p>Think clearly under pressure — and <em>articulate a point of view</em> that holds up.</p></div>
       <div class="out-row"><p>Build something — a small business, a project, a piece of writing — and stand behind it.</p></div>
-      <div class="out-row"><p>Make a decision under pressure <em>without losing their adab.</em></p></div>
-      <div class="out-row"><p>Walk into any room as a Muslim and add value.</p></div>
+      <div class="out-row"><p>Act with integrity when no one's grading them.</p></div>
+      <div class="out-row"><p>Walk into any room and <em>add value.</em></p></div>
     </div>
   </div>
 </section>
@@ -1524,19 +1489,19 @@
     <div class="faqs">
       <details>
         <summary>Is this recognised?</summary>
-        <p>Yes — IGCSEs are accepted by universities and sixth forms globally. It's the same qualification a British international school student would sit.</p>
+        <p>Yes — IGCSEs are accepted by universities and sixth forms internationally. It's the same qualification a British international school student would sit.</p>
       </details>
       <details>
         <summary>What about timezones?</summary>
-        <p>Live sessions run in two main bands — one Europe/Africa-friendly and one Americas-friendly. Recordings are available for asynchronous catch-up.</p>
+        <p>Live sessions run in scheduled bands that work across multiple regions. Where attendance isn't possible live, recordings are available for asynchronous catch-up.</p>
       </details>
       <details>
         <summary>How involved do parents need to be?</summary>
-        <p>Meaningfully. Not as teachers — as partners. We'll walk you through exactly what that looks like in the onboarding call.</p>
+        <p>Meaningfully. Not as teachers — as partners. We'll walk you through exactly what that looks like in the admissions conversation.</p>
       </details>
       <details>
         <summary>What does it cost?</summary>
-        <p>Fees vary by region, and need-based support is available. Book a call and we'll talk numbers honestly.</p>
+        <p>Fees vary by region, and need-based support is available. Talk to admissions and we'll be honest with you about the numbers.</p>
       </details>
       <details>
         <summary>Can my child join mid-year?</summary>
@@ -1549,12 +1514,12 @@
 <!-- FINAL CTA -->
 <section class="final" id="apply">
   <div class="wrap-narrow">
-    <div class="kicker on-dark">One window</div>
-    <h2>Your child has <em>one childhood.</em></h2>
-    <p>One window to become a Muslim who can think, build, and lead. Stop renting it to a school that doesn't share your goals.</p>
+    <div class="kicker on-dark">Admissions open for 2026/27</div>
+    <h2>Education that develops <em>capability, character, and confidence</em> for life beyond school.</h2>
+    <p>If that's the school you've been looking for, we'd be glad to meet you.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-gold">Apply for September intake <span class="arrow">→</span></a>
-      <a href="#call" class="btn btn-ghost on-dark">Book a 20-min call</a>
+      <a href="#" class="btn btn-gold">Apply for 2026/27 <span class="arrow">→</span></a>
+      <a href="#call" class="btn btn-ghost on-dark">Read prospectus</a>
     </div>
   </div>
 </section>
@@ -1569,7 +1534,7 @@
       <div class="brand-text">Stewards<span style="color:var(--gold);">.</span></div>
     </a>
     <div>
-      © Stewards · <a href="https://www.stewards.one/">stewards.one</a> · An online IGCSE homeschool for Muslim families worldwide.
+      © Stewards · <a href="https://www.stewards.one/">stewards.one</a> · An online IGCSE school for Years 7–11.
     </div>
   </div>
 </footer>
