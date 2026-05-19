@@ -758,6 +758,93 @@
   }
   footer a { color: var(--gold); text-decoration: none; }
   footer .brand-text { color: #fff; font-size: 1.25rem; }
+
+  /* ===== MOBILE FIXES ===== */
+  @media (max-width: 760px) {
+    .wrap, .wrap-narrow { padding: 0 20px; }
+
+    /* Hero compression */
+    .pros-hero { padding: 64px 0 56px; }
+    .pros-hero h1 { font-size: 2.4rem; }
+    .pros-hero .triplet { font-size: 1.15rem; margin-bottom: 22px; }
+    .pros-hero .lede { font-size: 1.02rem; }
+
+    /* Section padding */
+    section.block { padding: 64px 0; }
+    .stats { padding: 44px 0; }
+    .final { padding: 80px 0; }
+    .final h2 { font-size: 2.1rem; }
+    .section-head { margin-bottom: 40px; }
+    h2 { font-size: 1.9rem; line-height: 1.1; }
+
+    /* Pillar cards */
+    .pillar-card { padding: 28px 24px; }
+
+    /* Feature visual */
+    .feature-visual { max-width: 280px; }
+
+    /* PC steps */
+    .pc-step { padding: 24px 22px; }
+
+    /* Year content */
+    .year-content { padding: 28px 22px; }
+    .year-content .head-row { padding-bottom: 20px; margin-bottom: 22px; }
+    .year-content > p { font-size: 1rem; }
+    .year-cols { gap: 14px; margin-bottom: 22px; }
+    .year-col { padding: 20px 18px; }
+    .year-content h3 { font-size: 1.5rem; }
+
+    /* Year tabs — cleaner wrap */
+    .year-tabs {
+      flex-wrap: wrap;
+      padding: 6px;
+      max-width: 100%;
+      width: 100%;
+      gap: 4px;
+    }
+    .year-tab {
+      flex: 1 1 calc(33.333% - 4px);
+      min-width: 0;
+      padding: 9px 8px;
+      font-size: 0.82rem;
+    }
+
+    /* ABC balance — prevent text bleed in narrow segments */
+    .bal-bar { overflow: hidden; }
+    .bal-seg { font-size: 0.7rem; padding: 0 4px; }
+    .bal-label { font-size: 1rem; }
+
+    /* Fee cards */
+    .fee-card { padding: 26px 22px; }
+    .fee-card .amt { font-size: 2rem; }
+
+    /* Compare table */
+    .compare-row .c { padding: 14px 18px; font-size: 0.92rem; }
+
+    /* Tier cards */
+    .tier { padding: 20px 18px; }
+
+    /* Calendar items */
+    .cal-item { padding: 14px 18px; }
+    .cal-item .dt { font-size: 0.86rem; }
+
+    /* Newcard */
+    .newcard { padding: 32px 24px; }
+  }
+
+  @media (max-width: 420px) {
+    .pros-hero h1 { font-size: 2.05rem; }
+    h2 { font-size: 1.65rem; }
+    .btn { padding: 13px 20px; font-size: 0.88rem; }
+    .cta-row { width: 100%; }
+    .cta-row .btn { flex: 1 1 auto; }
+
+    /* Year tabs become 2-up on very narrow */
+    .year-tab { flex: 1 1 calc(50% - 4px); }
+
+    /* ABC bar — drop labels in narrow segments */
+    .bal-seg { font-size: 0.62rem; }
+  }
 </style>
 </head>
 <body>

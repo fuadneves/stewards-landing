@@ -470,6 +470,60 @@
   }
   footer a { color: var(--gold); text-decoration: none; }
   footer .brand-text { color: #fff; font-size: 1.25rem; }
+
+  /* ===== MOBILE FIXES ===== */
+  @media (max-width: 760px) {
+    .wrap, .wrap-narrow { padding: 0 20px; }
+
+    /* Hero compression */
+    .book-hero { padding: 60px 0 50px; }
+    .book-hero h1 { font-size: 2.4rem; }
+    .book-hero .lede { font-size: 1.02rem; }
+
+    /* Booking section */
+    .booking { padding: 50px 0 70px; }
+    .info { padding: 28px 22px; }
+    .info h2 { font-size: 1.4rem; }
+    .info ul.cover-list li { font-size: 0.9rem; padding: 9px 0 9px 24px; }
+    .cal { padding: 26px 20px; }
+    .cal-head h3 { font-size: 1.1rem; }
+
+    /* Calendar cells slightly smaller */
+    .cal-grid { gap: 3px; }
+    .cal-cell { font-size: 0.86rem; border-radius: 8px; }
+    .cal-dow { font-size: 0.66rem; padding: 6px 0; }
+
+    /* Slot list — 2 col on mobile */
+    .slots { padding-top: 18px; }
+    .slots-head { font-size: 0.98rem; }
+    .slot-list { gap: 8px; }
+    .slot-btn { padding: 12px 10px; font-size: 0.9rem; }
+
+    /* Confirm footer */
+    .cal-foot { gap: 12px; padding-top: 18px; margin-top: 20px; }
+    .cal-summary { font-size: 0.88rem; }
+    #confirmBtn { width: 100%; }
+
+    /* Confirmed state */
+    .confirm-state .check { width: 60px; height: 60px; }
+    .confirm-state h3 { font-size: 1.4rem; }
+    .confirm-state .booked-time { font-size: 0.92rem; }
+
+    /* Prefer */
+    .prefer { padding: 60px 0; }
+    .prefer h2 { font-size: 1.8rem; }
+
+    h2 { font-size: 1.8rem; line-height: 1.1; }
+  }
+
+  @media (max-width: 420px) {
+    .book-hero h1 { font-size: 2.05rem; }
+    h2 { font-size: 1.6rem; }
+    .btn { padding: 13px 20px; font-size: 0.88rem; }
+    .cal { padding: 22px 16px; }
+    .info { padding: 24px 18px; }
+    .cal-cell { font-size: 0.8rem; }
+  }
 </style>
 </head>
 <body>
