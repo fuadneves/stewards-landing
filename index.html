@@ -86,6 +86,42 @@
   .kicker.on-dark { color: var(--gold); }
   .kicker.on-dark::before { background: var(--gold); }
 
+  /* Admissions badge — prominent live-indicator pill */
+  .admissions-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px 9px 14px;
+    border-radius: 999px;
+    background: rgba(223, 189, 99, 0.14);
+    border: 1px solid rgba(223, 189, 99, 0.45);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(223, 189, 99, 0.12);
+  }
+  .pulse-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 0 rgba(223, 189, 99, 0.75);
+    animation: pulse 1.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(223, 189, 99, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(223, 189, 99, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(223, 189, 99, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot { animation: none; }
+  }
+
   .accent-bar {
     display: block;
     width: 72px; height: 3px;
@@ -1167,7 +1203,10 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
-      <div class="kicker on-dark">An Online IGCSE School · Years 7–11</div>
+      <div class="admissions-badge">
+        <span class="pulse-dot"></span>
+        Admissions open for 2026/27
+      </div>
       <h1>The online school raising <em>global stewards.</em></h1>
       <p class="lede">Bridging academic excellence and real-world readiness. A global community where students develop intellectual capability — and the life skills to <em>lead with purpose.</em></p>
 
