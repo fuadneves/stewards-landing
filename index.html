@@ -763,6 +763,72 @@
   .testimonial .author .nm { font-size: 0.88rem; font-weight: 800; color: var(--navy); }
   .testimonial .author .lo { font-size: 0.76rem; color: var(--muted); }
 
+  /* New 3-card quote grid */
+  .testimonial { text-align: left; }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 900px) { .quote-grid { grid-template-columns: 1fr; gap: 18px; } }
+  .qc {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 30px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .qc:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .qc-mark {
+    font-family: 'Philosopher', serif;
+    font-size: 3.6rem;
+    color: var(--gold);
+    line-height: 0.5;
+    margin-bottom: 18px;
+    opacity: 0.7;
+  }
+  .qc p {
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: var(--navy);
+    margin: 0 0 24px;
+    flex: 1;
+    letter-spacing: -0.005em;
+  }
+  .qc p em {
+    font-style: italic;
+    color: var(--gold-deep);
+  }
+  .qc-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 18px;
+  }
+  .qc-av {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    display: grid; place-items: center;
+    color: var(--navy);
+    font-weight: 800;
+    font-family: 'Philosopher', serif;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .qc-nm { font-size: 0.92rem; font-weight: 800; color: var(--navy); }
+  .qc-lo { font-size: 0.78rem; color: var(--muted); }
+
   .who-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1380,17 +1446,49 @@
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
-  <div class="wrap-narrow">
-    <div class="qmark">"</div>
-    <blockquote>
-      My daughter grew academically through the school year. She became a confident writer. <em>The teacher and principal are caring and attentive to students' needs.</em>
-    </blockquote>
-    <div class="author">
-      <div class="av">UM</div>
-      <div class="meta">
-        <div class="nm">Umm Maryam</div>
-        <div class="lo">Parent · Texas, USA</div>
-      </div>
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker center">What families say</div>
+      <h2>From parents and teachers <em>around the world.</em></h2>
+      <span class="accent-bar center"></span>
+    </div>
+
+    <div class="quote-grid">
+      <article class="qc">
+        <div class="qc-mark">"</div>
+        <p>My daughter grew academically through the school year. She became a confident writer. <em>The teacher and principal are caring and attentive to students' needs.</em></p>
+        <div class="qc-author">
+          <div class="qc-av">UM</div>
+          <div>
+            <div class="qc-nm">Umm Maryam</div>
+            <div class="qc-lo">Parent · Texas, USA</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="qc">
+        <div class="qc-mark">"</div>
+        <p>Joining Stewards has been a <em>huge blessing</em> for my kids and I.</p>
+        <div class="qc-author">
+          <div class="qc-av">HA</div>
+          <div>
+            <div class="qc-nm">Hamida Amani</div>
+            <div class="qc-lo">Parent · London, UK</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="qc">
+        <div class="qc-mark">"</div>
+        <p>I thoroughly enjoy teaching at Stewards. I feel like I am able to really <em>get to know my pupils as individuals.</em></p>
+        <div class="qc-author">
+          <div class="qc-av">AP</div>
+          <div>
+            <div class="qc-nm">Asma Patel</div>
+            <div class="qc-lo">Teacher · Bradford, UK</div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
