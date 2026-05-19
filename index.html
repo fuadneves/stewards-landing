@@ -1026,6 +1026,52 @@
   footer a:hover { color: #fff; }
   footer .brand-text { color: #fff; font-size: 1.25rem; }
 
+  /* AWAKEN */
+  .awaken-section {
+    background:
+      radial-gradient(circle at 85% 50%, rgba(223,189,99,0.18), transparent 50%),
+      linear-gradient(135deg, var(--bg) 0%, var(--cream) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .awaken-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><g fill='none' stroke='%23b88a2a' stroke-width='0.4' opacity='0.10'><path d='M50 8 L60 30 L82 28 L66 44 L82 64 L60 62 L60 84 L50 68 L40 84 L40 62 L18 64 L34 44 L18 28 L40 30 Z'/></g></svg>");
+    background-size: 100px 100px;
+    pointer-events: none;
+  }
+  .awaken-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 900px) {
+    .awaken-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+    .awaken-grid .cta-row { justify-content: center; }
+    .awaken-grid .accent-bar { margin-left: auto; margin-right: auto; }
+  }
+  .awaken-body p {
+    font-size: 1.18rem;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 56ch;
+  }
+  .awaken-body p em {
+    color: var(--gold-deep);
+    font-style: italic;
+  }
+  .awaken-visual {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .awaken-visual svg { width: 100%; height: 100%; }
+
 </style>
 </head>
 <body>
@@ -1318,6 +1364,73 @@
           <p>Whatever comes next — university, apprenticeship, or their own venture — students leave grounded, capable, and ready to contribute well in the world.</p>
         </div>
         <a href="#call" class="btn btn-gold">Talk to admissions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWAKEN -->
+<section class="block awaken-section">
+  <div class="wrap">
+    <div class="awaken-grid">
+      <div class="awaken-body">
+        <div class="kicker">Extending the formation</div>
+        <h2>Awaken their <em>Capabilities.</em></h2>
+        <span class="accent-bar"></span>
+        <p>Stewards.ONE forms the whole learner. Academics, business, and character are held together in one coherent school experience, with pathways such as Awaken extending that vision into <em>wider capability, purpose, and contribution.</em></p>
+        <div class="cta-row" style="margin-top: 28px;">
+          <a href="#" class="btn btn-gold">Explore Awaken <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="awaken-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="awakenGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.35"/>
+              <stop offset="60%" stop-color="#dfbd63" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="rayFade" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0"/>
+              <stop offset="40%" stop-color="#dfbd63" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.85"/>
+            </linearGradient>
+          </defs>
+          <!-- Outer glow -->
+          <circle cx="200" cy="200" r="180" fill="url(#awakenGlow)"/>
+          <!-- Concentric rings -->
+          <circle cx="200" cy="200" r="160" fill="none" stroke="#b88a2a" stroke-width="0.6" opacity="0.25"/>
+          <circle cx="200" cy="200" r="130" fill="none" stroke="#b88a2a" stroke-width="0.6" opacity="0.35"/>
+          <circle cx="200" cy="200" r="100" fill="none" stroke="#b88a2a" stroke-width="0.7" opacity="0.5"/>
+          <circle cx="200" cy="200" r="72" fill="none" stroke="#b88a2a" stroke-width="0.8" opacity="0.65"/>
+          <!-- Radiating rays -->
+          <g transform="translate(200 200)" stroke="url(#rayFade)" stroke-width="1.2">
+            <line x1="0" y1="-180" x2="0" y2="-90"/>
+            <line x1="0" y1="180" x2="0" y2="90"/>
+            <line x1="-180" y1="0" x2="-90" y2="0"/>
+            <line x1="180" y1="0" x2="90" y2="0"/>
+            <line x1="-127" y1="-127" x2="-64" y2="-64"/>
+            <line x1="127" y1="-127" x2="64" y2="-64"/>
+            <line x1="-127" y1="127" x2="-64" y2="64"/>
+            <line x1="127" y1="127" x2="64" y2="64"/>
+            <line x1="-69" y1="-169" x2="-35" y2="-85"/>
+            <line x1="69" y1="-169" x2="35" y2="-85"/>
+            <line x1="-69" y1="169" x2="-35" y2="85"/>
+            <line x1="69" y1="169" x2="35" y2="85"/>
+            <line x1="-169" y1="-69" x2="-85" y2="-35"/>
+            <line x1="169" y1="-69" x2="85" y2="-35"/>
+            <line x1="-169" y1="69" x2="-85" y2="35"/>
+            <line x1="169" y1="69" x2="85" y2="35"/>
+          </g>
+          <!-- Central 8-point star -->
+          <g transform="translate(200 200)">
+            <path d="M0 -56 L14 -14 L56 0 L14 14 L0 56 L-14 14 L-56 0 L-14 -14 Z"
+                  fill="#dfbd63" opacity="0.95"/>
+            <path d="M0 -56 L14 -14 L56 0 L14 14 L0 56 L-14 14 L-56 0 L-14 -14 Z"
+                  fill="none" stroke="#b88a2a" stroke-width="1.2" opacity="0.7"/>
+            <circle cx="0" cy="0" r="6" fill="#071b3a"/>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
