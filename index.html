@@ -1843,5 +1843,40 @@
   </div>
 </footer>
 
+<style>
+  /* ===== Scroll-aware nav ===== */
+  nav.top {
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    transition: background 0.28s ease, border-color 0.28s ease, backdrop-filter 0.28s ease;
+  }
+  nav.top:not(.scrolled) { backdrop-filter: none !important; }
+  nav.top.scrolled {
+    background: rgba(251, 248, 240, 0.94) !important;
+    border-bottom-color: var(--line-soft) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+  nav.top:not(.scrolled) .brand-text { color: #fff; }
+  nav.top:not(.scrolled) .brand-text span { color: var(--gold); }
+  nav.top:not(.scrolled) .nav-links a:not(.btn) { color: rgba(255,255,255,0.78); }
+  nav.top:not(.scrolled) .nav-links a:not(.btn):hover { color: #fff; }
+  nav.top:not(.scrolled) .brand-mark {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: none;
+  }
+  nav.top:not(.scrolled) .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.45); }
+  nav.top:not(.scrolled) .btn-ghost:hover { background: #fff; color: var(--navy); }
+</style>
+<script>
+  (function() {
+    const nav = document.querySelector('nav.top');
+    if (!nav) return;
+    const update = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+
 </body>
 </html>
