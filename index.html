@@ -840,63 +840,59 @@
   .qc-nm { font-size: 0.92rem; font-weight: 800; color: var(--navy); }
   .qc-lo { font-size: 0.78rem; color: var(--muted); }
 
-  /* Partners */
-  .partners-section .section-head p {
-    font-size: 1.05rem;
-    color: var(--muted);
+  /* Partner strip — compact band right under the hero */
+  .partner-strip {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-soft);
+    padding: 26px 0;
   }
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
-    align-items: stretch;
-    margin-top: 30px;
+  .partner-strip .strip-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
   }
-  @media (max-width: 900px) {
-    .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .partner-strip .strip-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-soft);
+    flex-shrink: 0;
+    padding-right: 32px;
+    border-right: 1px solid var(--line-soft);
   }
-  @media (max-width: 540px) {
-    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  .partner-strip .strip-logos {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
   }
-  .partner {
-    display: flex; flex-direction: column;
+  .partner-strip .strip-logos a {
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
-    padding: 18px 12px;
-    border-radius: 16px;
-    transition: background 0.2s, transform 0.2s;
   }
-  .partner:hover {
-    background: rgba(7,27,58,0.03);
-    transform: translateY(-2px);
-  }
-  .partner .logo-frame {
-    height: 64px;
-    width: 100%;
-    display: grid; place-items: center;
-    margin-bottom: 14px;
-  }
-  .partner img {
-    max-height: 64px;
-    max-width: 100%;
+  .partner-strip .strip-logos img {
+    max-height: 32px;
+    max-width: 120px;
     width: auto;
-    object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.65;
-    transition: filter 0.25s, opacity 0.25s;
+    opacity: 0.55;
+    transition: opacity 0.2s, filter 0.2s;
   }
-  .partner:hover img {
-    filter: grayscale(0%);
+  .partner-strip .strip-logos a:hover img {
+    filter: grayscale(0);
     opacity: 1;
   }
-  .partner .name {
-    font-size: 0.84rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-align: center;
-    letter-spacing: 0.01em;
+  @media (max-width: 720px) {
+    .partner-strip { padding: 22px 0; }
+    .partner-strip .strip-row { gap: 18px; justify-content: center; }
+    .partner-strip .strip-label { border-right: none; padding-right: 0; width: 100%; text-align: center; }
+    .partner-strip .strip-logos { gap: 28px; justify-content: center; }
+    .partner-strip .strip-logos img { max-height: 26px; max-width: 90px; }
   }
-  .partner:hover .name { color: var(--navy); }
 
   .who-grid {
     display: grid;
@@ -1414,6 +1410,32 @@
   </div>
 </div>
 
+<!-- PARTNERS STRIP -->
+<section class="partner-strip" aria-label="Trusted partners">
+  <div class="wrap">
+    <div class="strip-row">
+      <span class="strip-label">Trusted partners</span>
+      <div class="strip-logos">
+        <a href="https://www.artsaward.org.uk/" target="_blank" rel="noopener" title="Arts Award Center">
+          <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/artsawardcenter.png" alt="Arts Award Center" />
+        </a>
+        <a href="https://tutorsandexams.uk/" target="_blank" rel="noopener" title="Tutors & Exams">
+          <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/tutorsandexams.png" alt="Tutors and Exams" />
+        </a>
+        <a href="#" title="Deenway School">
+          <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/deenway.png" alt="Deenway School" />
+        </a>
+        <a href="#" title="PureKernel Systems">
+          <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/purekernel.png" alt="PureKernel Systems" />
+        </a>
+        <a href="#" title="MyVizmap.com">
+          <img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/myvizmap.png" alt="MyVizmap" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TENSION -->
 <section class="tension">
   <div class="wrap-narrow">
@@ -1558,41 +1580,6 @@
           </div>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section class="block partners-section">
-  <div class="wrap">
-    <div class="section-head center">
-      <div class="kicker center">Our partners</div>
-      <h2>Working with <em>experts in their fields.</em></h2>
-      <span class="accent-bar center"></span>
-      <p>Our partners enrich our capability to deliver educational services.</p>
-    </div>
-
-    <div class="partners-grid">
-      <a class="partner" href="https://www.artsaward.org.uk/" target="_blank" rel="noopener">
-        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/artsawardcenter.png" alt="Arts Award Center" /></div>
-        <div class="name">Arts Award Center</div>
-      </a>
-      <a class="partner" href="https://tutorsandexams.uk/" target="_blank" rel="noopener">
-        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/tutorsandexams.png" alt="Tutors &amp; Exams" /></div>
-        <div class="name">Tutors &amp; Exams</div>
-      </a>
-      <a class="partner" href="#">
-        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/deenway.png" alt="Deenway School" /></div>
-        <div class="name">Deenway School</div>
-      </a>
-      <a class="partner" href="#">
-        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/purekernel.png" alt="PureKernel Systems" /></div>
-        <div class="name">PureKernel Systems</div>
-      </a>
-      <a class="partner" href="#">
-        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/myvizmap.png" alt="MyVizmap.com" /></div>
-        <div class="name">MyVizmap.com</div>
-      </a>
     </div>
   </div>
 </section>
