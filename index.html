@@ -840,6 +840,64 @@
   .qc-nm { font-size: 0.92rem; font-weight: 800; color: var(--navy); }
   .qc-lo { font-size: 0.78rem; color: var(--muted); }
 
+  /* Partners */
+  .partners-section .section-head p {
+    font-size: 1.05rem;
+    color: var(--muted);
+  }
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 30px;
+  }
+  @media (max-width: 900px) {
+    .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  }
+  @media (max-width: 540px) {
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .partner {
+    display: flex; flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 18px 12px;
+    border-radius: 16px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .partner:hover {
+    background: rgba(7,27,58,0.03);
+    transform: translateY(-2px);
+  }
+  .partner .logo-frame {
+    height: 64px;
+    width: 100%;
+    display: grid; place-items: center;
+    margin-bottom: 14px;
+  }
+  .partner img {
+    max-height: 64px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: filter 0.25s, opacity 0.25s;
+  }
+  .partner:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  .partner .name {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+  .partner:hover .name { color: var(--navy); }
+
   .who-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1500,6 +1558,41 @@
           </div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="block partners-section">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker center">Our partners</div>
+      <h2>Working with <em>experts in their fields.</em></h2>
+      <span class="accent-bar center"></span>
+      <p>Our partners enrich our capability to deliver educational services.</p>
+    </div>
+
+    <div class="partners-grid">
+      <a class="partner" href="https://www.artsaward.org.uk/" target="_blank" rel="noopener">
+        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/artsawardcenter.png" alt="Arts Award Center" /></div>
+        <div class="name">Arts Award Center</div>
+      </a>
+      <a class="partner" href="https://tutorsandexams.uk/" target="_blank" rel="noopener">
+        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/tutorsandexams.png" alt="Tutors &amp; Exams" /></div>
+        <div class="name">Tutors &amp; Exams</div>
+      </a>
+      <a class="partner" href="#">
+        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/deenway.png" alt="Deenway School" /></div>
+        <div class="name">Deenway School</div>
+      </a>
+      <a class="partner" href="#">
+        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/purekernel.png" alt="PureKernel Systems" /></div>
+        <div class="name">PureKernel Systems</div>
+      </a>
+      <a class="partner" href="#">
+        <div class="logo-frame"><img src="https://www.stewards.one/wp-content/themes/stewards-one-v16-stable/assets/partners/myvizmap.png" alt="MyVizmap.com" /></div>
+        <div class="name">MyVizmap.com</div>
+      </a>
     </div>
   </div>
 </section>
