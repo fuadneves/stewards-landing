@@ -1175,51 +1175,263 @@
   footer a:hover { color: #fff; }
   footer .brand-text { color: #fff; font-size: 1.25rem; }
 
-  /* AWAKEN */
-  .awaken-section {
+  /* GIFT — Awaken complimentary-access section */
+  .gift-section {
+    padding: 90px 0;
     background:
-      radial-gradient(circle at 85% 50%, rgba(223,189,99,0.18), transparent 50%),
-      linear-gradient(135deg, var(--bg) 0%, var(--cream) 100%);
+      radial-gradient(circle at 90% 12%, rgba(223,189,99,0.22), transparent 45%),
+      radial-gradient(circle at 8% 90%, rgba(223,189,99,0.10), transparent 40%),
+      linear-gradient(135deg, #fdf9ee 0%, #f7eed9 100%);
     position: relative;
     overflow: hidden;
   }
-  .awaken-section::before {
+  .gift-section::before {
     content: "";
     position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><g fill='none' stroke='%23b88a2a' stroke-width='0.4' opacity='0.10'><path d='M50 8 L60 30 L82 28 L66 44 L82 64 L60 62 L60 84 L50 68 L40 84 L40 62 L18 64 L34 44 L18 28 L40 30 Z'/></g></svg>");
-    background-size: 100px 100px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'><g fill='none' stroke='%23b88a2a' stroke-width='0.4' opacity='0.10'><path d='M55 10 L65 32 L88 30 L72 46 L88 66 L66 64 L66 88 L55 72 L44 88 L44 64 L22 66 L38 46 L22 30 L45 32 Z'/></g></svg>");
+    background-size: 110px 110px;
     pointer-events: none;
   }
-  .awaken-grid {
+  .gift-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 70px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
     position: relative;
     z-index: 2;
   }
-  @media (max-width: 900px) {
-    .awaken-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
-    .awaken-grid .cta-row { justify-content: center; }
-    .awaken-grid .accent-bar { margin-left: auto; margin-right: auto; }
+  @media (max-width: 920px) {
+    .gift-grid { grid-template-columns: 1fr; gap: 40px; }
   }
-  .awaken-body p {
-    font-size: 1.18rem;
-    line-height: 1.7;
-    color: var(--ink);
-    max-width: 56ch;
+
+  /* Left body */
+  .gift-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(223,189,99,0.18);
+    border: 1px solid rgba(223,189,99,0.55);
+    color: var(--gold-deep);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
   }
-  .awaken-body p em {
+  .gift-body h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--navy);
+    margin-bottom: 0.6em;
+    line-height: 1.05;
+  }
+  .gift-body h2 em {
     color: var(--gold-deep);
     font-style: italic;
   }
-  .awaken-visual {
-    position: relative;
-    aspect-ratio: 1;
-    max-width: 420px;
-    margin: 0 auto;
+  .gift-body p {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 50ch;
   }
-  .awaken-visual svg { width: 100%; height: 100%; }
+  .gift-body p em { color: var(--gold-deep); font-style: italic; font-weight: 600; }
+  .gift-body p strong { color: var(--navy); font-weight: 700; }
+
+  /* Right card */
+  .gift-card-wrap {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+  }
+  .gift-card {
+    width: 100%;
+    max-width: 420px;
+    background:
+      radial-gradient(circle at 85% 8%, rgba(223,189,99,0.22), transparent 45%),
+      linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 36px 32px 32px;
+    box-shadow:
+      0 30px 60px rgba(7,27,58,0.25),
+      0 6px 16px rgba(7,27,58,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gift-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 38px 80px rgba(7,27,58,0.32),
+      0 8px 20px rgba(7,27,58,0.22);
+  }
+
+  /* Diagonal GIFT ribbon */
+  .gift-ribbon {
+    position: absolute;
+    top: 18px; right: -42px;
+    transform: rotate(45deg);
+    width: 160px;
+    text-align: center;
+    background: linear-gradient(180deg, #ecca78, var(--gold));
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+    z-index: 2;
+  }
+
+  .gift-brand {
+    font-family: 'Philosopher', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  .gift-brand::after {
+    content: "";
+    position: absolute; left: 0; bottom: 0;
+    width: 36px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    border-radius: 999px;
+  }
+  .gift-card-head h3 {
+    font-family: 'Philosopher', serif;
+    color: #fff;
+    font-size: 1.35rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .gift-card-head > p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.93rem;
+    margin: 0 0 22px;
+  }
+
+  /* Form */
+  .gift-form { position: relative; }
+  .gift-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+  .gift-label:first-of-type { margin-top: 0; }
+  .gift-two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .gift-form input[type="text"],
+  .gift-form input[type="email"] {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.94rem;
+    transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+  }
+  .gift-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .gift-form input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.10);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(223,189,99,0.18);
+  }
+  .gift-form .field-error input { border-color: var(--acc-red); }
+
+  /* Consent */
+  .gift-consent {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    align-items: start;
+    margin-top: 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .gift-consent input { position: absolute; opacity: 0; pointer-events: none; }
+  .gift-check {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.06);
+    display: grid; place-items: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .gift-check::after {
+    content: "";
+    width: 12px; height: 7px;
+    border-left: 2px solid var(--navy);
+    border-bottom: 2px solid var(--navy);
+    transform: rotate(-45deg) translate(1px, -1px);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .gift-consent input:checked ~ .gift-check {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .gift-consent input:checked ~ .gift-check::after { opacity: 1; }
+  .gift-consent-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.72);
+  }
+  .gift-consent-label-error { color: var(--acc-red) !important; }
+
+  .gift-submit {
+    margin-top: 24px;
+    padding: 14px 24px;
+    font-size: 0.96rem;
+  }
+
+  /* Success state */
+  .gift-success {
+    display: none;
+    text-align: center;
+    padding: 14px 6px 6px;
+  }
+  .gift-form.submitted .gift-body-form { display: none; }
+  .gift-form.submitted .gift-success { display: block; }
+  .gift-check-mark {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(223,189,99,0.18);
+    color: var(--gold);
+    display: grid; place-items: center;
+    margin: 0 auto 16px;
+  }
+  .gift-check-mark svg { width: 28px; height: 28px; }
+  .gift-success h4 {
+    font-family: 'Philosopher', serif;
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0 0 6px;
+  }
+  .gift-success p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  @media (max-width: 520px) {
+    .gift-card { padding: 30px 24px 26px; }
+    .gift-two { grid-template-columns: 1fr; }
+    .gift-ribbon { top: 14px; right: -46px; font-size: 10px; }
+  }
 
   /* ===== MOBILE FIXES ===== */
   @media (max-width: 760px) {
@@ -1649,69 +1861,59 @@
   </div>
 </section>
 
-<!-- AWAKEN -->
-<section class="block awaken-section">
+<!-- AWAKEN GIFT -->
+<section class="gift-section">
   <div class="wrap">
-    <div class="awaken-grid">
-      <div class="awaken-body">
-        <div class="kicker">Extending the formation</div>
-        <h2>Awaken their <em>Capabilities.</em></h2>
-        <span class="accent-bar"></span>
-        <p>Stewards.ONE forms the whole learner. Academics, business, and character are held together in one coherent school experience, with pathways such as Awaken extending that vision into <em>wider capability, purpose, and contribution.</em></p>
-        <div class="cta-row" style="margin-top: 28px;">
-          <a href="#" class="btn btn-gold">Explore Awaken <span class="arrow">→</span></a>
+    <div class="gift-grid">
+
+      <div class="gift-body">
+        <span class="gift-tag">A gift to every parent</span>
+        <h2>Because every child <em>deserves to flourish.</em></h2>
+        <p>Stewardship means giving value. That is why we are offering parents <em>complimentary access</em> to Awaken.</p>
+        <p>In a few thoughtful steps, it helps you reflect on your child's development across <strong>Academics</strong>, <strong>Business readiness</strong> and <strong>Character</strong> — beyond grades alone.</p>
+        <p>If it benefits your family, please share it with another parent.</p>
+      </div>
+
+      <div class="gift-card-wrap">
+        <div class="gift-card">
+          <div class="gift-ribbon"><span>Gift</span></div>
+          <div class="gift-card-head">
+            <div class="gift-brand">Awaken</div>
+            <h3>Access Your Child's Gift</h3>
+            <p>Enter your name and email to access Awaken.</p>
+          </div>
+
+          <form class="gift-form" id="giftForm" novalidate>
+            <div class="gift-body-form">
+              <label class="gift-label" for="giftFirst">Name</label>
+              <div class="gift-two">
+                <input id="giftFirst" name="firstName" type="text" placeholder="First" autocomplete="given-name" required />
+                <input id="giftLast" name="lastName" type="text" placeholder="Last" autocomplete="family-name" required />
+              </div>
+
+              <label class="gift-label" for="giftEmail">Email</label>
+              <input id="giftEmail" name="email" type="email" placeholder="myname@example.com" autocomplete="email" required />
+
+              <label class="gift-consent">
+                <input type="checkbox" name="consent" required />
+                <span class="gift-check"></span>
+                <span class="gift-consent-text">I agree to receive the Awaken assessment access link and occasional Stewards.ONE updates.</span>
+              </label>
+
+              <button type="submit" class="btn btn-gold btn-block gift-submit">Submit</button>
+            </div>
+
+            <div class="gift-success" aria-hidden="true">
+              <div class="gift-check-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <h4>Check your inbox.</h4>
+              <p>The Awaken access link is on its way. We've got you.</p>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="awaken-visual" aria-hidden="true">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="awakenGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.35"/>
-              <stop offset="60%" stop-color="#dfbd63" stop-opacity="0.05"/>
-              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="rayFade" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0"/>
-              <stop offset="40%" stop-color="#dfbd63" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.85"/>
-            </linearGradient>
-          </defs>
-          <!-- Outer glow -->
-          <circle cx="200" cy="200" r="180" fill="url(#awakenGlow)"/>
-          <!-- Concentric rings -->
-          <circle cx="200" cy="200" r="160" fill="none" stroke="#b88a2a" stroke-width="0.6" opacity="0.25"/>
-          <circle cx="200" cy="200" r="130" fill="none" stroke="#b88a2a" stroke-width="0.6" opacity="0.35"/>
-          <circle cx="200" cy="200" r="100" fill="none" stroke="#b88a2a" stroke-width="0.7" opacity="0.5"/>
-          <circle cx="200" cy="200" r="72" fill="none" stroke="#b88a2a" stroke-width="0.8" opacity="0.65"/>
-          <!-- Radiating rays -->
-          <g transform="translate(200 200)" stroke="url(#rayFade)" stroke-width="1.2">
-            <line x1="0" y1="-180" x2="0" y2="-90"/>
-            <line x1="0" y1="180" x2="0" y2="90"/>
-            <line x1="-180" y1="0" x2="-90" y2="0"/>
-            <line x1="180" y1="0" x2="90" y2="0"/>
-            <line x1="-127" y1="-127" x2="-64" y2="-64"/>
-            <line x1="127" y1="-127" x2="64" y2="-64"/>
-            <line x1="-127" y1="127" x2="-64" y2="64"/>
-            <line x1="127" y1="127" x2="64" y2="64"/>
-            <line x1="-69" y1="-169" x2="-35" y2="-85"/>
-            <line x1="69" y1="-169" x2="35" y2="-85"/>
-            <line x1="-69" y1="169" x2="-35" y2="85"/>
-            <line x1="69" y1="169" x2="35" y2="85"/>
-            <line x1="-169" y1="-69" x2="-85" y2="-35"/>
-            <line x1="169" y1="-69" x2="85" y2="-35"/>
-            <line x1="-169" y1="69" x2="-85" y2="35"/>
-            <line x1="169" y1="69" x2="85" y2="35"/>
-          </g>
-          <!-- Central 8-point star -->
-          <g transform="translate(200 200)">
-            <path d="M0 -56 L14 -14 L56 0 L14 14 L0 56 L-14 14 L-56 0 L-14 -14 Z"
-                  fill="#dfbd63" opacity="0.95"/>
-            <path d="M0 -56 L14 -14 L56 0 L14 14 L0 56 L-14 14 L-56 0 L-14 -14 Z"
-                  fill="none" stroke="#b88a2a" stroke-width="1.2" opacity="0.7"/>
-            <circle cx="0" cy="0" r="6" fill="#071b3a"/>
-          </g>
-        </svg>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1933,6 +2135,42 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Gift / Awaken form — visual only, no backend
+  (function() {
+    const form = document.getElementById('giftForm');
+    if (!form) return;
+    const inputs = form.querySelectorAll('input[required]');
+    const consent = form.querySelector('input[type="checkbox"]');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let ok = true;
+      inputs.forEach(el => {
+        const empty = el.type === 'checkbox' ? !el.checked : !el.value.trim();
+        const invalidEmail = el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value);
+        const bad = empty || invalidEmail;
+        const wrap = el.closest('.gift-consent') || el.parentElement;
+        wrap.classList.toggle('field-error', bad);
+        if (bad) ok = false;
+      });
+      if (!ok) return;
+      form.classList.add('submitted');
+    });
+
+    form.querySelectorAll('input').forEach(el => {
+      el.addEventListener('input', () => {
+        const wrap = el.closest('.gift-consent') || el.parentElement;
+        wrap.classList.remove('field-error');
+      });
+      el.addEventListener('change', () => {
+        const wrap = el.closest('.gift-consent') || el.parentElement;
+        wrap.classList.remove('field-error');
+      });
+    });
+  })();
+</script>
 
 <style>
   /* Solid navy nav — frosted, always visible, no seam against the navy hero */
