@@ -338,22 +338,17 @@
     padding: 22px;
     border: 1px solid rgba(255,255,255,0.1);
   }
-  /* Radar capability card */
+  /* Radar capability card — light, matching the journey card */
   .h-card.radar {
     top: 30px; right: 0;
     width: 260px;
     transform: rotate(3deg);
     z-index: 1;
     padding: 16px 18px 14px;
-    background:
-      radial-gradient(circle at 75% 18%, rgba(223,189,99,0.10), transparent 60%),
-      linear-gradient(160deg, #0a2243 0%, #071b3a 55%, #06172f 100%);
-    border: 1px solid rgba(223, 189, 99, 0.28);
-    color: #fff;
-    box-shadow:
-      0 24px 50px rgba(7,27,58,0.45),
-      0 0 30px rgba(223,189,99,0.05),
-      inset 0 1px 0 rgba(255,255,255,0.06);
+    background: linear-gradient(180deg, #fff 0%, var(--gold-soft) 100%);
+    border: 1px solid var(--gold-line);
+    color: var(--navy);
+    box-shadow: 0 22px 50px rgba(184,138,42,0.18), 0 2px 8px rgba(7,27,58,0.08);
   }
   .h-card.radar .radar-head {
     display: flex; align-items: center; gap: 8px;
@@ -361,22 +356,22 @@
     font-weight: 800;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.88);
+    color: var(--gold-deep);
     margin-bottom: 4px;
   }
   .h-card.radar .radar-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--gold);
-    box-shadow: 0 0 8px rgba(223,189,99,0.7);
+    box-shadow: 0 0 8px rgba(223,189,99,0.6);
     flex-shrink: 0;
   }
   .h-card.radar .radar-yr {
     margin-left: auto;
     padding: 3px 8px;
-    background: rgba(223,189,99,0.14);
-    border: 1px solid rgba(223,189,99,0.40);
-    color: var(--gold);
+    background: rgba(223,189,99,0.18);
+    border: 1px solid rgba(223,189,99,0.5);
+    color: var(--gold-deep);
     border-radius: 999px;
     font-size: 0.6rem;
     letter-spacing: 0.12em;
@@ -393,26 +388,26 @@
     gap: 12px;
     margin-top: 6px;
     padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(7,27,58,0.10);
   }
   .h-card.radar .radar-num {
     font-family: 'Philosopher', serif;
     font-size: 1.55rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-deep);
     line-height: 1;
     letter-spacing: -0.02em;
   }
   .h-card.radar .radar-num small {
     font-size: 1.1rem;
-    color: var(--gold);
+    color: var(--gold-deep);
   }
   .h-card.radar .radar-lbl {
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
+    color: var(--muted);
     line-height: 1.3;
   }
 
@@ -1737,7 +1732,7 @@
           </defs>
 
           <!-- Concentric hexagonal grid (center 130,105 radii 14/28/42/56/70) -->
-          <g fill="none" stroke="rgba(223,189,99,0.14)" stroke-width="0.6">
+          <g fill="none" stroke="rgba(7,27,58,0.12)" stroke-width="0.6">
             <polygon points="130,35 190.5,70 190.5,140 130,175 69.5,140 69.5,70"/>
             <polygon points="130,49 178.5,77 178.5,133 130,161 81.5,133 81.5,77"/>
             <polygon points="130,63 166.4,84 166.4,126 130,147 93.6,126 93.6,84"/>
@@ -1746,7 +1741,7 @@
           </g>
 
           <!-- Axes -->
-          <g stroke="rgba(223,189,99,0.18)" stroke-width="0.5">
+          <g stroke="rgba(7,27,58,0.18)" stroke-width="0.5">
             <line x1="130" y1="105" x2="130" y2="35"/>
             <line x1="130" y1="105" x2="190.5" y2="70"/>
             <line x1="130" y1="105" x2="190.5" y2="140"/>
@@ -1776,7 +1771,7 @@
           </g>
 
           <!-- Axis labels -->
-          <g fill="rgba(255,255,255,0.78)" font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing="0.06em">
+          <g fill="#071b3a" fill-opacity="0.72" font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing="0.06em">
             <text x="130" y="24" text-anchor="middle">DISCIPLINE</text>
             <text x="198" y="66" text-anchor="start">LEADERSHIP</text>
             <text x="198" y="146" text-anchor="start">LOGIC</text>
