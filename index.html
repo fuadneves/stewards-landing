@@ -323,6 +323,31 @@
   }
   .hero-meta i { color: var(--gold); font-style: normal; }
 
+  .hero-hook {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.4;
+    max-width: 60ch;
+  }
+  .hero-hook .hook-dot {
+    color: var(--gold);
+    font-size: 0.78rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transform: translateY(1px);
+  }
+  .hero-hook em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 600;
+    margin-left: 2px;
+  }
+
   .hero-visual {
     position: relative;
     height: 540px;
@@ -1703,7 +1728,13 @@
 
       <div class="cta-row">
         <a href="apply/" class="btn btn-gold">Apply for 2026/27 <span class="arrow">→</span></a>
-        <a href="prospectus/" class="btn btn-ghost on-dark">Read prospectus</a>
+        <a href="prospectus/" class="btn btn-ghost on-dark">Get the 2026 Prospectus</a>
+      </div>
+
+      <div class="hero-hook">
+        <span class="hook-dot" aria-hidden="true">✦</span>
+        Includes the iSTECAMMO Capability Audit
+        <em>(Free for a limited time)</em>
       </div>
 
       <div class="hero-meta">
@@ -2368,7 +2399,7 @@
     <p>If that's the school you've been looking for, we'd be glad to meet you.</p>
     <div class="cta-row">
       <a href="apply/" class="btn btn-gold">Apply for 2026/27 <span class="arrow">→</span></a>
-      <a href="prospectus/" class="btn btn-ghost on-dark">Read prospectus</a>
+      <a href="prospectus/" class="btn btn-ghost on-dark">Get the 2026 Prospectus</a>
     </div>
   </div>
 </section>
