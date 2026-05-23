@@ -447,6 +447,77 @@
     line-height: 1.3;
   }
 
+  /* Hero video — replaces the cards */
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-58%);
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--navy-deep);
+    box-shadow: 0 30px 60px rgba(7,27,58,0.45), 0 0 0 1px rgba(223,189,99,0.22);
+  }
+  .hero-video iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    display: block; border: 0;
+  }
+  @media (max-width: 980px) {
+    .hero-video {
+      position: relative;
+      top: auto; transform: none;
+      width: 100%;
+    }
+  }
+
+  /* System section — cards relocated here as features (relative positioning, full opacity, larger) */
+  .system-section .section-head p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .system-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) {
+    .system-grid { grid-template-columns: 1fr; gap: 22px; }
+  }
+  .system-grid .h-card {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    right: auto !important; bottom: auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    padding: 28px 28px 24px !important;
+    box-shadow: 0 22px 50px rgba(184,138,42,0.18), 0 2px 8px rgba(7,27,58,0.08) !important;
+    border: 1px solid var(--gold-line) !important;
+  }
+  /* Bump font sizes since cards are now feature-size */
+  .system-grid .jc-kicker { font-size: 0.7rem !important; }
+  .system-grid .jc-title { font-size: 1.4rem !important; }
+  .system-grid .jc-step-title { font-size: 1rem !important; }
+  .system-grid .jc-step-sub { font-size: 0.88rem !important; }
+  .system-grid .jc-end .jc-step-title { font-size: 1.2rem !important; }
+  .system-grid .jc-dot { width: 14px !important; height: 14px !important; }
+  .system-grid .jc-star { width: 22px !important; height: 22px !important; font-size: 12px !important; margin-left: -3px !important; }
+  .system-grid .jc-step { padding-bottom: 14px !important; }
+  .system-grid .h-card.journey-card .jc-step:not(:last-child)::before {
+    left: 8px !important;
+  }
+  .system-grid .radar-head { font-size: 0.78rem !important; margin-bottom: 8px !important; }
+  .system-grid .radar-yr { font-size: 0.66rem !important; padding: 3px 9px !important; }
+  .system-grid .radar-num { font-size: 2.4rem !important; }
+  .system-grid .radar-num small { font-size: 1.6rem !important; }
+  .system-grid .radar-lbl { font-size: 0.78rem !important; }
+
   .h-card.quote {
     bottom: 0; left: 20px;
     width: 320px;
@@ -1747,84 +1818,14 @@
     </div>
 
     <div class="hero-visual">
-      <div class="h-card radar" role="img" aria-label="Capability profile radar chart">
-        <div class="radar-head">
-          <span class="radar-dot"></span>
-          Beyond the grade
-          <span class="radar-yr">Year 9</span>
-        </div>
-
-        <svg class="radar-svg" viewBox="-12 0 274 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <filter id="radarGlow" x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur stdDeviation="3.6" result="blur"/>
-              <feFlood flood-color="#dfbd63" flood-opacity="1" result="color"/>
-              <feComposite in="color" in2="blur" operator="in" result="colored"/>
-              <feMerge>
-                <feMergeNode in="colored"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-            <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.65"/>
-              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.2"/>
-            </radialGradient>
-          </defs>
-
-          <!-- Concentric hexagonal grid (thin gold strokes) -->
-          <g fill="none" stroke="rgba(184,138,42,0.28)" stroke-width="0.6">
-            <polygon points="130,35 190.5,70 190.5,140 130,175 69.5,140 69.5,70"/>
-            <polygon points="130,49 178.5,77 178.5,133 130,161 81.5,133 81.5,77"/>
-            <polygon points="130,63 166.4,84 166.4,126 130,147 93.6,126 93.6,84"/>
-            <polygon points="130,77 154.2,91 154.2,119 130,133 105.8,119 105.8,91"/>
-            <polygon points="130,91 142.1,98 142.1,112 130,119 117.9,112 117.9,98"/>
-          </g>
-
-          <!-- Axes (gold) -->
-          <g stroke="rgba(184,138,42,0.42)" stroke-width="0.55">
-            <line x1="130" y1="105" x2="130" y2="35"/>
-            <line x1="130" y1="105" x2="190.5" y2="70"/>
-            <line x1="130" y1="105" x2="190.5" y2="140"/>
-            <line x1="130" y1="105" x2="130" y2="175"/>
-            <line x1="130" y1="105" x2="69.5" y2="140"/>
-            <line x1="130" y1="105" x2="69.5" y2="70"/>
-          </g>
-
-          <!-- Data polygon (glowing) -->
-          <polygon
-            points="130,49 172,81 185,137 130,158 79,135 83,78"
-            fill="url(#radarFill)"
-            stroke="#b88a2a"
-            stroke-width="1.7"
-            stroke-linejoin="round"
-            filter="url(#radarGlow)"
-          />
-
-          <!-- Data points -->
-          <g fill="#ecca78" filter="url(#radarGlow)">
-            <circle cx="130" cy="49" r="2.4"/>
-            <circle cx="172" cy="81" r="2.4"/>
-            <circle cx="185" cy="137" r="2.4"/>
-            <circle cx="130" cy="158" r="2.4"/>
-            <circle cx="79" cy="135" r="2.4"/>
-            <circle cx="83" cy="78" r="2.4"/>
-          </g>
-
-          <!-- Axis labels -->
-          <g fill="#071b3a" fill-opacity="0.72" font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing="0.06em">
-            <text x="130" y="24" text-anchor="middle">DISCIPLINE</text>
-            <text x="198" y="66" text-anchor="start">LEADERSHIP</text>
-            <text x="198" y="146" text-anchor="start">LOGIC</text>
-            <text x="130" y="192" text-anchor="middle">ENTERPRISE</text>
-            <text x="62" y="146" text-anchor="end">COMMUNICATION</text>
-            <text x="62" y="66" text-anchor="end">INITIATIVE</text>
-          </g>
-        </svg>
-
-        <div class="radar-foot">
-          <span class="radar-num">30<small>+</small></span>
-          <span class="radar-lbl">life capabilities<br/>tracked</span>
-        </div>
+      <div class="hero-video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/y-GmLe35oxc?rel=0&modestbranding=1"
+          title="Stewards.ONE — Welcome"
+          loading="lazy"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
 
       <div class="hero-stats">
@@ -1844,42 +1845,6 @@
         </div>
       </div>
 
-      <div class="h-card journey-card">
-        <div class="jc-head">
-          <span class="jc-kicker">The 5-year path</span>
-          <div class="jc-title">Year 7 →<br><em>Global Steward</em></div>
-        </div>
-
-        <div class="jc-steps">
-          <div class="jc-step">
-            <div class="jc-dot"></div>
-            <div class="jc-body">
-              <div class="jc-step-title">Baseline</div>
-              <div class="jc-step-sub">Capability Audit</div>
-            </div>
-          </div>
-          <div class="jc-step">
-            <div class="jc-dot"></div>
-            <div class="jc-body">
-              <div class="jc-step-title">IGCSE Mastery</div>
-              <div class="jc-step-sub">&amp; Accountability Pods</div>
-            </div>
-          </div>
-          <div class="jc-step">
-            <div class="jc-dot"></div>
-            <div class="jc-body">
-              <div class="jc-step-title">Leadership</div>
-              <div class="jc-step-sub">&amp; Business Launchpad</div>
-            </div>
-          </div>
-          <div class="jc-step jc-end">
-            <div class="jc-dot jc-star">★</div>
-            <div class="jc-body">
-              <div class="jc-step-title">Global Steward</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -2029,6 +1994,132 @@
           <li>Public speaking + writing</li>
           <li>Portfolio work by Year 10</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM — Mapped, measured, made -->
+<section class="block system-section">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker center">The Stewards system</div>
+      <h2>Mapped. Measured. <em>Made.</em></h2>
+      <span class="accent-bar center"></span>
+      <p>Every Stewards student moves along a clear five-year path, tracked across 30+ life capabilities. The journey and the measurement work as one — so growth isn't a hope, it's a record.</p>
+    </div>
+
+    <div class="system-grid">
+      <div class="h-card journey-card">
+        <div class="jc-head">
+          <span class="jc-kicker">The 5-year path</span>
+          <div class="jc-title">Year 7 → <em>Global Steward</em></div>
+        </div>
+
+        <div class="jc-steps">
+          <div class="jc-step">
+            <div class="jc-dot"></div>
+            <div class="jc-body">
+              <div class="jc-step-title">Baseline</div>
+              <div class="jc-step-sub">Capability Audit</div>
+            </div>
+          </div>
+          <div class="jc-step">
+            <div class="jc-dot"></div>
+            <div class="jc-body">
+              <div class="jc-step-title">IGCSE Mastery</div>
+              <div class="jc-step-sub">&amp; Accountability Pods</div>
+            </div>
+          </div>
+          <div class="jc-step">
+            <div class="jc-dot"></div>
+            <div class="jc-body">
+              <div class="jc-step-title">Leadership</div>
+              <div class="jc-step-sub">&amp; Business Launchpad</div>
+            </div>
+          </div>
+          <div class="jc-step jc-end">
+            <div class="jc-dot jc-star">★</div>
+            <div class="jc-body">
+              <div class="jc-step-title">Global Steward</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-card radar" role="img" aria-label="Capability profile radar chart">
+        <div class="radar-head">
+          <span class="radar-dot"></span>
+          Beyond the grade
+          <span class="radar-yr">Year 9</span>
+        </div>
+
+        <svg class="radar-svg" viewBox="-12 0 274 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <filter id="radarGlow2" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="3.6" result="blur"/>
+              <feFlood flood-color="#dfbd63" flood-opacity="1" result="color"/>
+              <feComposite in="color" in2="blur" operator="in" result="colored"/>
+              <feMerge>
+                <feMergeNode in="colored"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <radialGradient id="radarFill2" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.65"/>
+              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.2"/>
+            </radialGradient>
+          </defs>
+
+          <g fill="none" stroke="rgba(184,138,42,0.28)" stroke-width="0.6">
+            <polygon points="130,35 190.5,70 190.5,140 130,175 69.5,140 69.5,70"/>
+            <polygon points="130,49 178.5,77 178.5,133 130,161 81.5,133 81.5,77"/>
+            <polygon points="130,63 166.4,84 166.4,126 130,147 93.6,126 93.6,84"/>
+            <polygon points="130,77 154.2,91 154.2,119 130,133 105.8,119 105.8,91"/>
+            <polygon points="130,91 142.1,98 142.1,112 130,119 117.9,112 117.9,98"/>
+          </g>
+
+          <g stroke="rgba(184,138,42,0.42)" stroke-width="0.55">
+            <line x1="130" y1="105" x2="130" y2="35"/>
+            <line x1="130" y1="105" x2="190.5" y2="70"/>
+            <line x1="130" y1="105" x2="190.5" y2="140"/>
+            <line x1="130" y1="105" x2="130" y2="175"/>
+            <line x1="130" y1="105" x2="69.5" y2="140"/>
+            <line x1="130" y1="105" x2="69.5" y2="70"/>
+          </g>
+
+          <polygon
+            points="130,49 172,81 185,137 130,158 79,135 83,78"
+            fill="url(#radarFill2)"
+            stroke="#b88a2a"
+            stroke-width="1.7"
+            stroke-linejoin="round"
+            filter="url(#radarGlow2)"
+          />
+
+          <g fill="#ecca78" filter="url(#radarGlow2)">
+            <circle cx="130" cy="49" r="2.4"/>
+            <circle cx="172" cy="81" r="2.4"/>
+            <circle cx="185" cy="137" r="2.4"/>
+            <circle cx="130" cy="158" r="2.4"/>
+            <circle cx="79" cy="135" r="2.4"/>
+            <circle cx="83" cy="78" r="2.4"/>
+          </g>
+
+          <g fill="#071b3a" fill-opacity="0.72" font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing="0.06em">
+            <text x="130" y="24" text-anchor="middle">DISCIPLINE</text>
+            <text x="198" y="66" text-anchor="start">LEADERSHIP</text>
+            <text x="198" y="146" text-anchor="start">LOGIC</text>
+            <text x="130" y="192" text-anchor="middle">ENTERPRISE</text>
+            <text x="62" y="146" text-anchor="end">COMMUNICATION</text>
+            <text x="62" y="66" text-anchor="end">INITIATIVE</text>
+          </g>
+        </svg>
+
+        <div class="radar-foot">
+          <span class="radar-num">30<small>+</small></span>
+          <span class="radar-lbl">life capabilities<br/>tracked</span>
+        </div>
       </div>
     </div>
   </div>
