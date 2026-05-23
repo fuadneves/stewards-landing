@@ -351,13 +351,14 @@
     box-shadow: 0 22px 50px rgba(184,138,42,0.18), 0 2px 8px rgba(7,27,58,0.08);
   }
   .h-card.radar .radar-head {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 0.7rem;
+    display: flex; align-items: center; gap: 7px;
+    font-size: 0.62rem;
     font-weight: 800;
-    letter-spacing: 0.10em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--gold-deep);
     margin-bottom: 4px;
+    white-space: nowrap;
   }
   .h-card.radar .radar-dot {
     width: 7px; height: 7px;
@@ -373,8 +374,10 @@
     border: 1px solid rgba(223,189,99,0.5);
     color: var(--gold-deep);
     border-radius: 999px;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
+    font-size: 0.58rem;
+    letter-spacing: 0.10em;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .h-card.radar .radar-svg {
     width: 100%;
@@ -1716,7 +1719,7 @@
           <span class="radar-yr">Year 9</span>
         </div>
 
-        <svg class="radar-svg" viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="radar-svg" viewBox="-12 0 274 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <filter id="radarGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="2.4" result="blur"/>
