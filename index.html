@@ -1721,21 +1721,23 @@
 
         <svg class="radar-svg" viewBox="-12 0 274 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
-            <filter id="radarGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="2.4" result="blur"/>
+            <filter id="radarGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="3.6" result="blur"/>
+              <feFlood flood-color="#dfbd63" flood-opacity="1" result="color"/>
+              <feComposite in="color" in2="blur" operator="in" result="colored"/>
               <feMerge>
-                <feMergeNode in="blur"/>
+                <feMergeNode in="colored"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
             <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.15"/>
+              <stop offset="0%" stop-color="#dfbd63" stop-opacity="0.65"/>
+              <stop offset="100%" stop-color="#dfbd63" stop-opacity="0.2"/>
             </radialGradient>
           </defs>
 
-          <!-- Concentric hexagonal grid (center 130,105 radii 14/28/42/56/70) -->
-          <g fill="none" stroke="rgba(7,27,58,0.12)" stroke-width="0.6">
+          <!-- Concentric hexagonal grid (thin gold strokes) -->
+          <g fill="none" stroke="rgba(184,138,42,0.28)" stroke-width="0.6">
             <polygon points="130,35 190.5,70 190.5,140 130,175 69.5,140 69.5,70"/>
             <polygon points="130,49 178.5,77 178.5,133 130,161 81.5,133 81.5,77"/>
             <polygon points="130,63 166.4,84 166.4,126 130,147 93.6,126 93.6,84"/>
@@ -1743,8 +1745,8 @@
             <polygon points="130,91 142.1,98 142.1,112 130,119 117.9,112 117.9,98"/>
           </g>
 
-          <!-- Axes -->
-          <g stroke="rgba(7,27,58,0.18)" stroke-width="0.5">
+          <!-- Axes (gold) -->
+          <g stroke="rgba(184,138,42,0.42)" stroke-width="0.55">
             <line x1="130" y1="105" x2="130" y2="35"/>
             <line x1="130" y1="105" x2="190.5" y2="70"/>
             <line x1="130" y1="105" x2="190.5" y2="140"/>
@@ -1757,8 +1759,8 @@
           <polygon
             points="130,49 172,81 185,137 130,158 79,135 83,78"
             fill="url(#radarFill)"
-            stroke="#dfbd63"
-            stroke-width="1.4"
+            stroke="#b88a2a"
+            stroke-width="1.7"
             stroke-linejoin="round"
             filter="url(#radarGlow)"
           />
