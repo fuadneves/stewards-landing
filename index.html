@@ -454,6 +454,47 @@
   .h-card.quote .name { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
   .h-card.quote .loc { font-size: 0.72rem; color: var(--muted); }
 
+  /* Hero stats — minimal typographic clusters (no card borders) */
+  .hero-stats {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 18px;
+    padding: 0 6px;
+  }
+  .hs-item { text-align: center; }
+  .hs-num {
+    font-family: 'Philosopher', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 8px;
+  }
+  .hs-num small {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .hs-lbl {
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.35;
+  }
+  .hs-div {
+    width: 1px;
+    height: 58px;
+    background: linear-gradient(180deg, transparent 0%, rgba(223,189,99,0.45) 50%, transparent 100%);
+  }
+
   /* Journey card — Year 7 → Global Steward */
   .h-card.journey-card {
     top: 0; left: 0;
@@ -1560,6 +1601,16 @@
       padding: 4px 0;
     }
     .hero-visual::before { display: none; }
+    .hero-stats {
+      position: relative !important;
+      width: 100%;
+      gap: 12px;
+      padding: 10px 0;
+    }
+    .hs-num { font-size: 2.2rem; }
+    .hs-num small { font-size: 1.3rem; }
+    .hs-lbl { font-size: 0.58rem; letter-spacing: 0.1em; }
+    .hs-div { height: 44px; }
     .h-card {
       position: relative !important;
       transform: none !important;
@@ -1741,15 +1792,20 @@
         </div>
       </div>
 
-      <div class="h-card quote">
-        <div class="q-mark">"</div>
-        <p>My son who hated English is now doing Year 7 English and it's <em>his favourite subject.</em></p>
-        <div class="who">
-          <div class="avatar">UE</div>
-          <div>
-            <div class="name">Umm Eesa</div>
-            <div class="loc">Parent · Reading, UK</div>
-          </div>
+      <div class="hero-stats">
+        <div class="hs-item">
+          <div class="hs-num">100<small>%</small></div>
+          <div class="hs-lbl">IGCSE Pass Rate</div>
+        </div>
+        <div class="hs-div" aria-hidden="true"></div>
+        <div class="hs-item">
+          <div class="hs-num">15<small>:1</small></div>
+          <div class="hs-lbl">Student-to-Mentor Ratio</div>
+        </div>
+        <div class="hs-div" aria-hidden="true"></div>
+        <div class="hs-item">
+          <div class="hs-num">30<small>+</small></div>
+          <div class="hs-lbl">Core Life Capabilities</div>
         </div>
       </div>
 
